@@ -12,7 +12,7 @@
 <style>
 :root{
   --cream:#fbf0d9; --orange:#e8622c; --mustard:#e9a92a; --avocado:#7d8b2e;
-  --brown:#5a3a22; --rust:#b5432a; --sand:#f3d9a4; --ink:#3b2414;
+  --brown:#5a3a22; --rust:#b5432a; --sand:#f3d9a4; --ink:#3b2414; --navh:50px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -28,16 +28,16 @@ a{color:var(--rust)}
 .hero::after{content:"";position:absolute;left:50%;bottom:-120px;transform:translateX(-50%);width:260px;height:260px;border-radius:50%;
   background:radial-gradient(circle,#ffd36b 0 55%,var(--rust) 56% 62%,transparent 63%)}
 .hero .inner{position:relative;z-index:1}
-.badge{display:inline-block;background:var(--brown);color:var(--sand);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.badge{display:inline-block;background:var(--brown);color:var(--sand);border-radius:999px;padding:6px 14px;font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 .hero h1{font-size:clamp(2.6rem,11vw,4.6rem);margin:.35em 0 .15em;text-shadow:4px 4px 0 var(--brown),8px 8px 0 var(--avocado)}
-.hero .sub{font-size:1.15rem;font-weight:600;color:var(--cream);text-shadow:2px 2px 0 var(--brown);max-width:520px;margin:0 auto 1.2em}
+.hero .sub{font-size:1.15rem;font-weight:600;color:var(--cream);text-shadow:1px 1px 0 var(--brown);max-width:520px;margin:0 auto 1.2em;background:rgba(74,46,26,.72);border-radius:16px;padding:10px 14px}
 .btn{display:inline-block;background:var(--avocado);color:var(--cream);font-weight:700;border:3px solid var(--brown);border-radius:999px;padding:14px 26px;font-size:1.05rem;text-decoration:none;box-shadow:4px 4px 0 var(--brown);cursor:pointer;font-family:inherit}
 .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--brown)}
 .stripes{height:28px;background:linear-gradient(var(--rust) 0 25%,var(--orange) 25% 50%,var(--mustard) 50% 75%,var(--avocado) 75%)}
 section{padding:44px 0}
 section:nth-of-type(even){background:var(--sand)}
 h2{font-size:clamp(1.9rem,7vw,2.6rem);color:var(--rust);text-shadow:2px 2px 0 var(--mustard)}
-.kicker{font-weight:700;color:var(--avocado);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;margin-bottom:.2em}
+.kicker{font-weight:700;color:#56621a;text-transform:uppercase;letter-spacing:.08em;font-size:1rem;margin-bottom:.2em}
 /* mantras */
 .mantras{display:grid;gap:14px}
 .mantra{background:var(--cream);border:3px solid var(--brown);border-radius:22px;padding:16px 18px;font-weight:600;font-size:1.1rem;box-shadow:5px 5px 0 var(--orange)}
@@ -46,11 +46,11 @@ h2{font-size:clamp(1.9rem,7vw,2.6rem);color:var(--rust);text-shadow:2px 2px 0 va
 .tiers{display:grid;gap:18px}
 .tier{border:3px solid var(--brown);border-radius:24px;padding:20px;background:var(--cream);position:relative}
 .tier h3{font-size:1.6rem;color:var(--brown)}
-.tier .price{display:inline-block;background:var(--mustard);border-radius:999px;padding:3px 12px;font-weight:700;font-size:.85rem;margin-bottom:8px}
+.tier .price{display:inline-block;background:var(--mustard);border-radius:999px;padding:3px 12px;font-weight:700;font-size:1rem;margin-bottom:8px}
 .tier ul{margin:.4em 0 0;padding-left:1.2em}
 .tier.project{background:var(--brown);color:var(--sand)}
 .tier.project h3{color:var(--mustard)}
-.fine{font-size:.72rem;opacity:.8;margin-top:10px;line-height:1.35}
+.fine{font-size:1rem;opacity:.9;margin-top:10px;line-height:1.4}
 /* schedule */
 .day{list-style:none;padding:0;margin:0;border-left:4px dashed var(--orange);margin-left:8px}
 .day li{padding:8px 0 12px 18px;position:relative}
@@ -58,22 +58,22 @@ h2{font-size:clamp(1.9rem,7vw,2.6rem);color:var(--rust);text-shadow:2px 2px 0 va
 .day b{color:var(--rust);display:inline-block;min-width:74px}
 /* values */
 .values{display:grid;grid-template-columns:1fr;gap:12px}
-.value{background:var(--avocado);color:var(--cream);border-radius:18px;padding:14px 16px;border:3px solid var(--brown)}
+.value{background:#5c6a1c;color:var(--cream);border-radius:18px;padding:14px 16px;border:3px solid var(--brown)}
 .value strong{font-family:'Shrikhand',serif;font-weight:400;font-size:1.2rem;display:block;color:#ffe9a8}
 /* testimonials */
 .quotes{display:grid;gap:16px}
 blockquote{margin:0;background:var(--cream);border-radius:24px 24px 24px 4px;border:3px solid var(--brown);padding:16px 18px;box-shadow:4px 4px 0 var(--avocado)}
-blockquote cite{display:block;margin-top:8px;font-style:normal;font-weight:700;color:var(--rust);font-size:.9rem}
+blockquote cite{display:block;margin-top:8px;font-style:normal;font-weight:700;color:var(--rust);font-size:1rem}
 /* faq */
-details{background:var(--cream);border:3px solid var(--brown);border-radius:16px;padding:12px 16px;margin-bottom:10px}
-summary{font-weight:700;cursor:pointer;color:var(--brown)}
-details p{margin:.5em 0 0}
+details{background:var(--cream);border:3px solid var(--brown);border-radius:16px;padding:0 16px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer;color:var(--brown);padding:12px 0;min-height:44px}
+details p{margin:0 0 14px}
 /* rules */
 .rules{counter-reset:r;list-style:none;padding:0;margin:0}
 .rules li{counter-increment:r;padding:10px 0 10px 52px;position:relative;border-bottom:2px dotted var(--orange)}
 .rules li::before{content:counter(r);position:absolute;left:0;top:6px;width:38px;height:38px;border-radius:50%;background:var(--rust);color:var(--cream);font-family:'Shrikhand',serif;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
 /* cta */
-.cta{text-align:center;background:var(--orange) !important;color:var(--cream)}
+.cta{text-align:center;background:var(--rust) !important;color:var(--cream)}
 .cta h2{color:var(--cream);text-shadow:3px 3px 0 var(--brown)}
 #joke{min-height:3.5em;margin-top:18px;font-weight:700;font-size:1.1rem;background:var(--brown);color:var(--sand);border-radius:16px;padding:14px;display:none}
 /* posters */
@@ -81,22 +81,22 @@ details p{margin:.5em 0 0}
 .poster{margin:0;background:#fff;border:3px solid var(--brown);border-radius:6px;padding:8px;box-shadow:5px 5px 0 var(--rust);cursor:zoom-in;transform:rotate(1deg)}
 .poster:nth-child(even){transform:rotate(-1.5deg)}
 .poster img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--sand)}
-.rollcall{position:sticky;top:0;z-index:20;margin:0 -20px 18px;padding:10px 20px 12px;background:linear-gradient(var(--sand) 80%,rgba(243,217,164,0));}
+.rollcall{position:sticky;top:var(--navh);z-index:20;margin:0 -20px 18px;padding:10px 20px 12px;background:linear-gradient(var(--sand) 80%,rgba(243,217,164,0));}
 .rollcall .lbl{font-family:'Shrikhand',serif;color:var(--brown);font-size:1rem;margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline}
-.rollcall .lbl small{font-family:'Fredoka',sans-serif;font-weight:600;font-size:.75rem;color:var(--avocado);letter-spacing:.08em;text-transform:uppercase}
+.rollcall .lbl small{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;color:#56621a;letter-spacing:.08em;text-transform:uppercase}
 .pills{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:2px 2px 8px;scrollbar-width:thin}
-.pills a{flex:0 0 auto;scroll-snap-align:start;text-decoration:none;background:var(--cream);color:var(--brown);border:3px solid var(--brown);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.95rem;box-shadow:3px 3px 0 var(--orange);white-space:nowrap}
-.pills a .n{display:inline-block;background:var(--rust);color:var(--cream);border-radius:999px;font-size:.7rem;padding:1px 7px;margin-right:6px;vertical-align:2px}
+.pills a{flex:0 0 auto;scroll-snap-align:start;text-decoration:none;background:var(--cream);color:var(--brown);border:3px solid var(--brown);border-radius:999px;padding:6px 16px;font-weight:700;font-size:1rem;box-shadow:3px 3px 0 var(--orange);white-space:nowrap;min-height:46px;display:inline-flex;align-items:center}
+.pills a .n{display:inline-block;background:var(--rust);color:var(--cream);border-radius:999px;font-size:.8rem;padding:1px 7px;margin-right:7px}
 .pills a:active,.pills a.on{background:var(--orange);color:var(--cream)}
-.poster{scroll-margin-top:110px}
+.poster{scroll-margin-top:calc(var(--navh) + 118px)}
 .poster.flash{animation:flash 1.6s ease}
 @keyframes flash{0%,60%{box-shadow:0 0 0 6px var(--mustard),5px 5px 0 var(--rust)}100%{box-shadow:5px 5px 0 var(--rust)}}
-.poster .turn{display:block;margin-top:8px;background:var(--sand);border:2px dashed var(--rust);border-radius:10px;padding:6px 8px;font-size:.78rem;line-height:1.3;text-align:left}
-.poster .turn b{display:block;font-family:'Shrikhand',serif;font-weight:400;color:var(--rust);font-size:.85rem;margin-bottom:2px}
+.poster .turn{display:block;margin-top:8px;background:var(--sand);border:2px dashed var(--rust);border-radius:10px;padding:6px 8px;font-size:1rem;line-height:1.4;text-align:left}
+.poster .turn b{display:block;font-family:'Shrikhand',serif;font-weight:400;color:var(--rust);font-size:1.05rem;margin-bottom:2px}
 .poster .frame{position:relative;overflow:hidden}
 .poster .stamp{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%) rotate(-22deg);border:4px solid #c4161c;color:#c4161c;background:rgba(255,255,255,.55);font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.7rem;letter-spacing:.1em;padding:0 10px;border-radius:8px;background:rgba(255,255,255,.85);box-shadow:0 0 0 3px rgba(255,255,255,.85),3px 3px 0 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
-.poster .title{display:block;font-weight:700;font-size:.9rem;color:var(--avocado);text-align:center;margin-top:4px;line-height:1.2}
-.poster .duty{display:block;font-size:.8rem;text-align:center;margin-top:3px;line-height:1.3;color:var(--ink)}
+.poster .title{display:block;font-weight:700;font-size:1.1rem;color:#56621a;text-align:center;margin-top:4px;line-height:1.2}
+.poster .duty{display:block;font-size:1rem;text-align:center;margin-top:4px;line-height:1.4;color:var(--ink)}
 .lightbox .t{font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;color:var(--sand);max-width:560px}
 .poster figcaption{font-family:'Shrikhand',serif;font-size:1.25rem;color:var(--rust);text-align:center;margin-top:6px;line-height:1.1}
 .lightbox{position:fixed;inset:0;background:rgba(40,24,12,.92);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:50;padding:16px;cursor:zoom-out}
@@ -109,10 +109,10 @@ details p{margin:.5em 0 0}
 .gallery figure{margin:0;background:var(--cream);border:3px solid var(--brown);border-radius:14px;padding:8px 8px 6px;box-shadow:4px 4px 0 var(--orange);transform:rotate(-1deg)}
 .gallery figure:nth-child(even){transform:rotate(1.2deg)}
 .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;display:block;background:var(--sand)}
-.gallery figcaption{font-size:.85rem;font-weight:600;margin-top:6px;line-height:1.25}
+.gallery figcaption{font-size:1rem;font-weight:600;margin-top:6px;line-height:1.25}
 .empty{grid-column:1/-1;text-align:center;background:var(--cream);border:3px dashed var(--brown);border-radius:18px;padding:22px;font-weight:600}
 @media(min-width:700px){.gallery{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
-footer{background:var(--brown);color:var(--sand);text-align:center;padding:28px 20px 36px;font-size:.8rem}
+footer{background:var(--brown);color:var(--sand);text-align:center;padding:28px 20px 36px;font-size:1rem}
 footer .peace{font-size:2rem}
 @media(min-width:700px){
   .values{grid-template-columns:1fr 1fr}
@@ -120,29 +120,42 @@ footer .peace{font-size:2rem}
   .mantras{grid-template-columns:1fr 1fr}
   .mantra.big{grid-column:1/-1}
 }
+/* mobile: top nav, CTAs, readable posters */
+html,body{overflow-x:clip}
+section,header{scroll-margin-top:var(--navh)}
+#missing{background:var(--sand)}
+#about{background:var(--sand)}
+.topnav{position:sticky;top:0;z-index:30;height:var(--navh);display:flex;align-items:stretch;justify-content:space-between;background:var(--brown);border-bottom:3px solid var(--mustard);padding:0 6px}
+.topnav a{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 10px;color:var(--sand);text-decoration:none;font-weight:700;font-size:1rem}
+.topnav a.home{font-family:'Shrikhand',serif;font-weight:400;color:var(--mustard);margin-right:auto;padding-left:8px}
+.topnav a.hot{color:var(--brown);background:var(--mustard);border-radius:999px;margin:3px 2px;min-height:44px}
+.ctas{display:flex;flex-direction:column;align-items:center;gap:14px}
+.btn{min-height:48px}
+.btn.find{background:var(--rust);font-size:1.15rem;padding:16px 26px;animation:nudge 2.4s ease-in-out 1s 3}
+@keyframes nudge{0%,100%{transform:none}50%{transform:scale(1.05) rotate(-1deg)}}
+@media(max-width:400px){.topnav a{padding:0 8px}.topnav a.home{padding-left:6px}}
+@media(max-width:559px){
+  .posters{grid-template-columns:1fr;max-width:380px;margin:0 auto;gap:26px}
+  .poster,.poster:nth-child(even){transform:rotate(.6deg)}
+  .poster:nth-child(even){transform:rotate(-.6deg)}
+  .poster figcaption{font-size:1.7rem}
+  .poster .stamp{font-size:2.4rem}
+}
 </style>
 </head>
 <body>
+<nav class="topnav" aria-label="Sections"><a href="#top" class="home">Echo Canyon</a><a href="#missing" class="hot">Found</a><a href="#tiers">Tiers</a><a href="#faq">FAQ</a><a href="#join">Join</a></nav>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="inner">
     <span class="badge">Est. whenever you got here &middot; Totally a co-op</span>
     <h1>Echo Canyon Co-op</h1>
     <p class="sub">A back-to-the-land farm community for seekers, drifters, and people whose phones are about to be confiscated.</p>
-    <a class="btn" href="#join">Begin your journey &#9774;</a>
+    <div class="ctas"><a class="btn find" href="#missing">Find yourself: Found Members &#128269;</a>
+    <a class="btn" href="#join">Begin your journey &#9774;</a></div>
   </div>
 </header>
 <div class="stripes"></div>
-
-<section id="about">
-  <div class="wrap">
-    <div class="kicker">Welcome, friend</div>
-    <h2>It's not a cult. It's a co-op.</h2>
-    <p>Tucked away on 40 peaceful acres with no cell service (on purpose), Echo Canyon is a cooperative farm where everyone shares everything: the work, the harvest, the bunkhouse, and especially your savings account.</p>
-    <p>Our spiritual guide, <strong>Guru Eddy</strong>, is a visionary, a gardener, and, according to Guru Eddy, a portal. He found enlightenment at the bottom of a pair of amber aviators and has been generously sharing it ever since. Usually with an acoustic guitar. Usually for a long time.</p>
-  </div>
-</section>
-
 <section id="missing">
   <div class="wrap">
     <div class="kicker">Great news from the notice board</div>
@@ -157,6 +170,17 @@ footer .peace{font-size:2rem}
     </div>
   </div>
 </section>
+<div class="stripes"></div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="kicker">Welcome, friend</div>
+    <h2>It's not a cult. It's a co-op.</h2>
+    <p>Tucked away on 40 peaceful acres with no cell service (on purpose), Echo Canyon is a cooperative farm where everyone shares everything: the work, the harvest, the bunkhouse, and especially your savings account.</p>
+    <p>Our spiritual guide, <strong>Guru Eddy</strong>, is a visionary, a gardener, and, according to Guru Eddy, a portal. He found enlightenment at the bottom of a pair of amber aviators and has been generously sharing it ever since. Usually with an acoustic guitar. Usually for a long time.</p>
+  </div>
+</section>
+
 
 <section id="sayings">
   <div class="wrap">
