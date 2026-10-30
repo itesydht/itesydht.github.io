@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Echo Canyon Co-op | Definitely a Co-op</title>
+<meta name="description" content="Echo Canyon Co-op. No corporate overlords, no capitalism. All are welcome, especially if you're hot.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fbf0d9; --orange:#e8622c; --mustard:#e9a92a; --avocado:#7d8b2e;
+  --brown:#5a3a22; --rust:#b5432a; --sand:#f3d9a4; --ink:#3b2414;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Fredoka',system-ui,sans-serif;font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:'Shrikhand',Georgia,serif;font-weight:400;line-height:1.1;margin:0 0 .4em}
+a{color:var(--rust)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+/* HERO with sunburst */
+.hero{position:relative;overflow:hidden;text-align:center;color:var(--cream);padding:56px 20px 70px;
+  background:
+    repeating-conic-gradient(from 0deg at 50% 105%, var(--orange) 0 10deg, var(--mustard) 10deg 20deg);
+}
+.hero::after{content:"";position:absolute;left:50%;bottom:-120px;transform:translateX(-50%);width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,#ffd36b 0 55%,var(--rust) 56% 62%,transparent 63%)}
+.hero .inner{position:relative;z-index:1}
+.badge{display:inline-block;background:var(--brown);color:var(--sand);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.hero h1{font-size:clamp(2.6rem,11vw,4.6rem);margin:.35em 0 .15em;text-shadow:4px 4px 0 var(--brown),8px 8px 0 var(--avocado)}
+.hero .sub{font-size:1.15rem;font-weight:600;color:var(--cream);text-shadow:2px 2px 0 var(--brown);max-width:520px;margin:0 auto 1.2em}
+.btn{display:inline-block;background:var(--avocado);color:var(--cream);font-weight:700;border:3px solid var(--brown);border-radius:999px;padding:14px 26px;font-size:1.05rem;text-decoration:none;box-shadow:4px 4px 0 var(--brown);cursor:pointer;font-family:inherit}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--brown)}
+.stripes{height:28px;background:linear-gradient(var(--rust) 0 25%,var(--orange) 25% 50%,var(--mustard) 50% 75%,var(--avocado) 75%)}
+section{padding:44px 0}
+section:nth-of-type(even){background:var(--sand)}
+h2{font-size:clamp(1.9rem,7vw,2.6rem);color:var(--rust);text-shadow:2px 2px 0 var(--mustard)}
+.kicker{font-weight:700;color:var(--avocado);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;margin-bottom:.2em}
+/* mantras */
+.mantras{display:grid;gap:14px}
+.mantra{background:var(--cream);border:3px solid var(--brown);border-radius:22px;padding:16px 18px;font-weight:600;font-size:1.1rem;box-shadow:5px 5px 0 var(--orange)}
+.mantra.big{background:var(--orange);color:var(--cream);font-family:'Shrikhand',serif;font-weight:400;font-size:1.45rem;box-shadow:6px 6px 0 var(--brown);text-align:center}
+/* tiers */
+.tiers{display:grid;gap:18px}
+.tier{border:3px solid var(--brown);border-radius:24px;padding:20px;background:var(--cream);position:relative}
+.tier h3{font-size:1.6rem;color:var(--brown)}
+.tier .price{display:inline-block;background:var(--mustard);border-radius:999px;padding:3px 12px;font-weight:700;font-size:.85rem;margin-bottom:8px}
+.tier ul{margin:.4em 0 0;padding-left:1.2em}
+.tier.project{background:var(--brown);color:var(--sand)}
+.tier.project h3{color:var(--mustard)}
+.fine{font-size:.72rem;opacity:.8;margin-top:10px;line-height:1.35}
+/* schedule */
+.day{list-style:none;padding:0;margin:0;border-left:4px dashed var(--orange);margin-left:8px}
+.day li{padding:8px 0 12px 18px;position:relative}
+.day li::before{content:"";position:absolute;left:-12px;top:13px;width:18px;height:18px;border-radius:50%;background:var(--mustard);border:3px solid var(--brown)}
+.day b{color:var(--rust);display:inline-block;min-width:74px}
+/* values */
+.values{display:grid;grid-template-columns:1fr;gap:12px}
+.value{background:var(--avocado);color:var(--cream);border-radius:18px;padding:14px 16px;border:3px solid var(--brown)}
+.value strong{font-family:'Shrikhand',serif;font-weight:400;font-size:1.2rem;display:block;color:#ffe9a8}
+/* testimonials */
+.quotes{display:grid;gap:16px}
+blockquote{margin:0;background:var(--cream);border-radius:24px 24px 24px 4px;border:3px solid var(--brown);padding:16px 18px;box-shadow:4px 4px 0 var(--avocado)}
+blockquote cite{display:block;margin-top:8px;font-style:normal;font-weight:700;color:var(--rust);font-size:.9rem}
+/* faq */
+details{background:var(--cream);border:3px solid var(--brown);border-radius:16px;padding:12px 16px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer;color:var(--brown)}
+details p{margin:.5em 0 0}
+/* rules */
+.rules{counter-reset:r;list-style:none;padding:0;margin:0}
+.rules li{counter-increment:r;padding:10px 0 10px 52px;position:relative;border-bottom:2px dotted var(--orange)}
+.rules li::before{content:counter(r);position:absolute;left:0;top:6px;width:38px;height:38px;border-radius:50%;background:var(--rust);color:var(--cream);font-family:'Shrikhand',serif;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+/* cta */
+.cta{text-align:center;background:var(--orange) !important;color:var(--cream)}
+.cta h2{color:var(--cream);text-shadow:3px 3px 0 var(--brown)}
+#joke{min-height:3.5em;margin-top:18px;font-weight:700;font-size:1.1rem;background:var(--brown);color:var(--sand);border-radius:16px;padding:14px;display:none}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gallery figure{margin:0;background:var(--cream);border:3px solid var(--brown);border-radius:14px;padding:8px 8px 6px;box-shadow:4px 4px 0 var(--orange);transform:rotate(-1deg)}
+.gallery figure:nth-child(even){transform:rotate(1.2deg)}
+.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;display:block;background:var(--sand)}
+.gallery figcaption{font-size:.85rem;font-weight:600;margin-top:6px;line-height:1.25}
+.empty{grid-column:1/-1;text-align:center;background:var(--cream);border:3px dashed var(--brown);border-radius:18px;padding:22px;font-weight:600}
+@media(min-width:700px){.gallery{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+footer{background:var(--brown);color:var(--sand);text-align:center;padding:28px 20px 36px;font-size:.8rem}
+footer .peace{font-size:2rem}
+@media(min-width:700px){
+  .values{grid-template-columns:1fr 1fr}
+  .tiers{grid-template-columns:1fr 1fr 1fr}
+  .mantras{grid-template-columns:1fr 1fr}
+  .mantra.big{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <span class="badge">Est. whenever you got here &middot; Totally a co-op</span>
+    <h1>Echo Canyon Co-op</h1>
+    <p class="sub">A back-to-the-land farm community for seekers, drifters, and people whose phones are about to be confiscated.</p>
+    <a class="btn" href="#join">Begin your journey &#9774;</a>
+  </div>
+</header>
+<div class="stripes"></div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="kicker">Welcome, friend</div>
+    <h2>It's not a cult. It's a co-op.</h2>
+    <p>Tucked away on 40 peaceful acres with no cell service (on purpose), Echo Canyon is a cooperative farm where everyone shares everything: the work, the harvest, the bunkhouse, and especially your savings account.</p>
+    <p>Our spiritual guide, <strong>Brother Eddy</strong>, is a visionary, a gardener, and, according to Brother Eddy, a portal. He found enlightenment at the bottom of a pair of amber aviators and has been generously sharing it ever since. Usually with an acoustic guitar. Usually for a long time.</p>
+  </div>
+</section>
+
+<section id="sayings">
+  <div class="wrap">
+    <div class="kicker">Words to grow by</div>
+    <h2>Co-op Sayings</h2>
+    <div class="mantras">
+      <div class="mantra big">"No corporate overlords, no capitalism. All are welcome, especially if you're hot."</div>
+      <div class="mantra">"We don't have a leader. We have Brother Eddy, which is different, and also please stop asking."</div>
+      <div class="mantra">"Your possessions were holding you back. We'll hold them for you."</div>
+      <div class="mantra">"Nobody leaves Echo Canyon. Mostly because the van has one key."</div>
+      <div class="mantra">"Free love. Free kale. Membership is $49.99 a month."</div>
+      <div class="mantra">"There's no 'I' in co-op. There's also no exit."</div>
+      <div class="mantra">"The headband is not mandatory. The headband is strongly encouraged. The headband is mandatory."</div>
+      <div class="mantra">"Ask not what the co-op can do for you. Ask for your car keys back. You will not get them."</div>
+    </div>
+  </div>
+</section>
+
+<section id="tiers">
+  <div class="wrap">
+    <div class="kicker">Grow with us</div>
+    <h2>Membership Tiers</h2>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Probationer</h3>
+        <span class="price">Days 1 to 10</span>
+        <ul>
+          <li>Bunk with a view (of other bunks)</li>
+          <li>Hand-stitched co-op tunic, one size fits nobody</li>
+          <li>Unlimited compost-turning</li>
+          <li>Phone placed in our "Digital Detox Shoebox"</li>
+        </ul>
+        <p class="fine">Probationers are evaluated daily by the community. Smiling counts. So does not asking where the last group of probationers went.</p>
+      </div>
+      <div class="tier">
+        <h3>Neophyte</h3>
+        <span class="price">Voted in at Day 10</span>
+        <ul>
+          <li>Upgraded bunk (bottom)</li>
+          <li>Second tunic, for formal harvests</li>
+          <li>Front-row seating at Brother Eddy's nightly sing</li>
+          <li>Your mail, read aloud to you "for your growth"</li>
+        </ul>
+        <p class="fine">Votes are anonymous, except Brother Eddy's, which counts as everyone's. Results are final. Appeals may be filed with Judith.</p>
+      </div>
+      <div class="tier project">
+        <h3>The Project</h3>
+        <span class="price">By invitation only</span>
+        <ul>
+          <li>Relocation to our beautiful sister farm</li>
+          <li>Exclusive wellness program</li>
+          <li>Very special vitamins</li>
+          <li>Rave reviews from absolutely no one who has returned</li>
+        </ul>
+        <p class="fine">The sister farm is real. It is lovely. It is not under the barn. Please do not go near the barn. Do not ask about the hatch in the barn. There is no barn. Results not typical. Side effects may include vanishing. Not evaluated by the FDA, or anyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="day">
+  <div class="wrap">
+    <div class="kicker">Rise and shine, it's mandatory</div>
+    <h2>A Day at the Co-op</h2>
+    <ul class="day">
+      <li><b>4:30 am</b> Gentle wake-up gong. Then the less gentle gong.</li>
+      <li><b>5:00 am</b> Sunrise gratitude circle. Say one thing you're grateful for. It should be Brother Eddy.</li>
+      <li><b>6:00 am</b> Breakfast: oats we grew, milk we grew, and a feeling we grew.</li>
+      <li><b>7:00 am</b> Fieldwork. Today's lesson: the zucchini doesn't complain, so why do you?</li>
+      <li><b>12:00 pm</b> Lunch. Absolutely no processed food. A Dorito was found in 2019 and we still talk about it.</li>
+      <li><b>1:00 pm</b> Mail time. Judith reads your letters first, for your growth.</li>
+      <li><b>3:00 pm</b> Free time (supervised).</li>
+      <li><b>6:00 pm</b> Communal dinner. Seating is assigned by aura.</li>
+      <li><b>8:00 pm</b> Nightly gathering. Attendance is required. Brother Eddy sings. All 14 verses.</li>
+      <li><b>11:00 pm</b> Lights out. Someone will check.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="values">
+  <div class="wrap">
+    <div class="kicker">What we stand for</div>
+    <h2>Our Values</h2>
+    <div class="values">
+      <div class="value"><strong>Community</strong>We share everything. You'll be surprised how much of your stuff "everything" includes.</div>
+      <div class="value"><strong>Transparency</strong>We know where you are at all times. That's transparency, right?</div>
+      <div class="value"><strong>Sustainability</strong>We waste nothing. Not food, not water, not new members.</div>
+      <div class="value"><strong>Wellness</strong>Clean living, clean eating, and cleaned-out bank accounts.</div>
+      <div class="value"><strong>Equality</strong>Everyone is equal. Brother Eddy is just a little more equal, and he has the nicer cabin.</div>
+      <div class="value"><strong>Openness</strong>Our gates are always open. For coming in.</div>
+    </div>
+  </div>
+</section>
+
+<section id="wild">
+  <div class="wrap">
+    <div class="kicker">Recruitment is going great</div>
+    <h2>Members in the Wild</h2>
+    <p>Live field reports from tonight's outreach. Every photo is a potential Probationer. Smile. You're being evaluated.</p>
+    <div class="gallery" id="gallery">
+      <div class="empty" id="galleryEmpty">No photos yet. The camera was confiscated for its growth. Check back later tonight.</div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="kicker">Real reviews from real members</div>
+    <h2>Testimonials</h2>
+    <div class="quotes">
+      <blockquote>"I came for a weekend retreat. That was eight months ago. 10/10, the kale is incredible."<cite>Sunflower, formerly Kevin from Accounting</cite></blockquote>
+      <blockquote>"They took my cigarettes. I hid more. They found those and made me eat them. Honestly? I've never felt more seen."<cite>Probationer Dale, Day 9 (fingers crossed)</cite></blockquote>
+      <blockquote>"Brother Eddy looked at me through those amber glasses and I just knew. Knew what, I couldn't tell you. But I knew it."<cite>Meadow, Neophyte</cite></blockquote>
+      <blockquote>"My cousin got picked for the Project! She's at the sister farm now. She hasn't called, but I assume that's the no-phones thing."<cite>River, Neophyte</cite></blockquote>
+      <blockquote>"Everything is going great and I am free to leave."<cite>Name withheld, read from a card</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="kicker">You have questions. We have deflections.</div>
+    <h2>FAQ</h2>
+    <details><summary>Is this a cult?</summary><p>It's a co-op.</p></details>
+    <details><summary>But is it a cult though?</summary><p>It's a co-op. Next question.</p></details>
+    <details><summary>Can I leave whenever I want?</summary><p>Absolutely. Whenever you want to is up to you. What you want is up to Brother Eddy.</p></details>
+    <details><summary>What happens at the sister farm?</summary><p>Wonderful things. Growth. Wellness. Vitamins. Don't worry about it.</p></details>
+    <details><summary>Why is there a barn with a reinforced steel door?</summary><p>Barns are like that now. Livestock got stronger.</p></details>
+    <details><summary>Who is Judith?</summary><p>Judith is our Operations Director. She handles scheduling, logistics, your mail, your phone, your car, and your feelings about any of the above.</p></details>
+    <details><summary>Is Brother Eddy really a portal?</summary><p>He has said so many times, and he's wearing a headband, so we believe him.</p></details>
+    <details><summary>Do I have to be hot to join?</summary><p>No! All are welcome. It just, you know, helps with the vote.</p></details>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <div class="kicker">For your growth</div>
+    <h2>House Rules</h2>
+    <ol class="rules">
+      <li>No processed food. If it has a barcode, it has a demon.</li>
+      <li>Cigarettes will be confiscated. Get caught twice and you eat them. Bon appetit.</li>
+      <li>All outgoing and incoming mail is read by Judith, for your growth.</li>
+      <li>Phones, wallets, and car keys go in the Gratitude Basket on arrival.</li>
+      <li>Nightly gathering is mandatory. Clapping on the one and three only.</li>
+      <li>Do not touch Brother Eddy's aviators. They are load-bearing.</li>
+      <li>Stay away from the barn. There is nothing in the barn. Stay away from it.</li>
+      <li>Never say the word "cult." The word is "co-op." It was a vote. You weren't here yet.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="join" class="cta">
+  <div class="wrap">
+    <h2>Ready to Join?</h2>
+    <p>No forms. No paperwork. No going back. Just tap the button and let the canyon take it from here.</p>
+    <button class="btn" id="joinBtn" type="button">Yes! Take my stuff! &#9774;</button>
+    <div id="joke" role="status" aria-live="polite"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="peace">&#9774; &#9775; &#127803;</div>
+  <p>Echo Canyon Co-op is a Halloween party bit. Brother Eddy is a guy in a headband. No real farm, barn, sister farm, or vitamins exist. Nobody's stuff was taken in the making of this page.</p>
+  <p>&copy; Nobody. We don't believe in ownership.</p>
+</footer>
+
+<script>
+(function(){
+  var lines = [
+    "Welcome, Probationer! Please hand your phone to the nearest person in a tunic.",
+    "Application received. Just kidding, we didn't save anything. We don't believe in data. We believe in vibes.",
+    "Your vote is scheduled for Day 10. Start smiling now. Don't stop.",
+    "Brother Eddy has sensed your aura. It's... fine. You're in.",
+    "Congratulations! You have been selected for the Project. Please report to the barn. There is no barn.",
+    "Judith has reviewed your application and your search history. Welcome.",
+    "You're hot. You're in. That's the whole process."
+  ];
+  var i = Math.floor(Math.random()*lines.length);
+  var btn = document.getElementById('joinBtn'), out = document.getElementById('joke');
+  btn.addEventListener('click', function(){
+    out.style.display = 'block';
+    out.textContent = lines[i % lines.length];
+    i++;
+    btn.textContent = 'Join again (you already did) \u262E';
+  });
+})();
+</script>
+<script>
+(function(){
+  var g=document.getElementById('gallery'), empty=document.getElementById('galleryEmpty');
+  function esc(t){var d=document.createElement('div');d.textContent=t||'';return d.innerHTML;}
+  fetch('photos.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():[];}).then(function(list){
+    if(!list||!list.length) return;
+    empty.style.display='none';
+    list.slice().reverse().forEach(function(p){
+      var f=document.createElement('figure');
+      f.innerHTML='<img alt="'+esc(p.caption||'Co-op member')+'" loading="lazy"><figcaption>'+esc(p.caption||'')+'</figcaption>';
+      g.appendChild(f);
+      fetch(p.file,{cache:'force-cache'}).then(function(r){return r.text();}).then(function(d){f.querySelector('img').src=d.trim();});
+    });
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
