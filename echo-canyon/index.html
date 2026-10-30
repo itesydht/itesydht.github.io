@@ -81,6 +81,18 @@ details p{margin:.5em 0 0}
 .poster{margin:0;background:#fff;border:3px solid var(--brown);border-radius:6px;padding:8px;box-shadow:5px 5px 0 var(--rust);cursor:zoom-in;transform:rotate(1deg)}
 .poster:nth-child(even){transform:rotate(-1.5deg)}
 .poster img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--sand)}
+.rollcall{position:sticky;top:0;z-index:20;margin:0 -20px 18px;padding:10px 20px 12px;background:linear-gradient(var(--sand) 80%,rgba(243,217,164,0));}
+.rollcall .lbl{font-family:'Shrikhand',serif;color:var(--brown);font-size:1rem;margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline}
+.rollcall .lbl small{font-family:'Fredoka',sans-serif;font-weight:600;font-size:.75rem;color:var(--avocado);letter-spacing:.08em;text-transform:uppercase}
+.pills{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:2px 2px 8px;scrollbar-width:thin}
+.pills a{flex:0 0 auto;scroll-snap-align:start;text-decoration:none;background:var(--cream);color:var(--brown);border:3px solid var(--brown);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.95rem;box-shadow:3px 3px 0 var(--orange);white-space:nowrap}
+.pills a .n{display:inline-block;background:var(--rust);color:var(--cream);border-radius:999px;font-size:.7rem;padding:1px 7px;margin-right:6px;vertical-align:2px}
+.pills a:active,.pills a.on{background:var(--orange);color:var(--cream)}
+.poster{scroll-margin-top:110px}
+.poster.flash{animation:flash 1.6s ease}
+@keyframes flash{0%,60%{box-shadow:0 0 0 6px var(--mustard),5px 5px 0 var(--rust)}100%{box-shadow:5px 5px 0 var(--rust)}}
+.poster .turn{display:block;margin-top:8px;background:var(--sand);border:2px dashed var(--rust);border-radius:10px;padding:6px 8px;font-size:.78rem;line-height:1.3;text-align:left}
+.poster .turn b{display:block;font-family:'Shrikhand',serif;font-weight:400;color:var(--rust);font-size:.85rem;margin-bottom:2px}
 .poster .frame{position:relative;overflow:hidden}
 .poster .stamp{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%) rotate(-22deg);border:4px solid #c4161c;color:#c4161c;background:rgba(255,255,255,.55);font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.7rem;letter-spacing:.1em;padding:0 10px;border-radius:8px;background:rgba(255,255,255,.85);box-shadow:0 0 0 3px rgba(255,255,255,.85),3px 3px 0 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
 .poster .title{display:block;font-weight:700;font-size:.9rem;color:var(--avocado);text-align:center;margin-top:4px;line-height:1.2}
@@ -127,7 +139,7 @@ footer .peace{font-size:2rem}
     <div class="kicker">Welcome, friend</div>
     <h2>It's not a cult. It's a co-op.</h2>
     <p>Tucked away on 40 peaceful acres with no cell service (on purpose), Echo Canyon is a cooperative farm where everyone shares everything: the work, the harvest, the bunkhouse, and especially your savings account.</p>
-    <p>Our spiritual guide, <strong>Brother Eddy</strong>, is a visionary, a gardener, and, according to Brother Eddy, a portal. He found enlightenment at the bottom of a pair of amber aviators and has been generously sharing it ever since. Usually with an acoustic guitar. Usually for a long time.</p>
+    <p>Our spiritual guide, <strong>Guru Eddy</strong>, is a visionary, a gardener, and, according to Guru Eddy, a portal. He found enlightenment at the bottom of a pair of amber aviators and has been generously sharing it ever since. Usually with an acoustic guitar. Usually for a long time.</p>
   </div>
 </section>
 
@@ -136,6 +148,10 @@ footer .peace{font-size:2rem}
     <div class="kicker">Great news from the notice board</div>
     <h2>Recently Found Members</h2>
     <p>Remember all those MISSING posters? Good news: everyone has been found! They wandered in on their own, totally of their own free will, and the co-op has lovingly reassigned them to meaningful new careers. Their families have been notified by mail. Judith read it first. Tap a poster to see if it's you, and to learn your new job.</p>
+    <nav class="rollcall" id="rollcall" aria-label="Found members roll call" hidden>
+      <div class="lbl">Roll Call <small id="rcCount"></small></div>
+      <div class="pills" id="pills"></div>
+    </nav>
     <div class="posters" id="posters">
       <div class="empty" id="postersEmpty">Nobody has been found yet. Nobody is missing either. Everyone is fine. Please stop asking.</div>
     </div>
@@ -148,7 +164,7 @@ footer .peace{font-size:2rem}
     <h2>Co-op Sayings</h2>
     <div class="mantras">
       <div class="mantra big">"No corporate overlords, no capitalism. All are welcome, especially if you're hot."</div>
-      <div class="mantra">"We don't have a leader. We have Brother Eddy, which is different, and also please stop asking."</div>
+      <div class="mantra">"We don't have a leader. We have Guru Eddy, which is different, and also please stop asking."</div>
       <div class="mantra">"Your possessions were holding you back. We'll hold them for you."</div>
       <div class="mantra">"Nobody leaves Echo Canyon. Mostly because the van has one key."</div>
       <div class="mantra">"Free love. Free kale. Membership is $49.99 a month."</div>
@@ -181,10 +197,10 @@ footer .peace{font-size:2rem}
         <ul>
           <li>Upgraded bunk (bottom)</li>
           <li>Second tunic, for formal harvests</li>
-          <li>Front-row seating at Brother Eddy's nightly sing</li>
+          <li>Front-row seating at Guru Eddy's nightly sing</li>
           <li>Your mail, read aloud to you "for your growth"</li>
         </ul>
-        <p class="fine">Votes are anonymous, except Brother Eddy's, which counts as everyone's. Results are final. Appeals may be filed with Judith.</p>
+        <p class="fine">Votes are anonymous, except Guru Eddy's, which counts as everyone's. Results are final. Appeals may be filed with Judith.</p>
       </div>
       <div class="tier project">
         <h3>The Project</h3>
@@ -207,14 +223,14 @@ footer .peace{font-size:2rem}
     <h2>A Day at the Co-op</h2>
     <ul class="day">
       <li><b>4:30 am</b> Gentle wake-up gong. Then the less gentle gong.</li>
-      <li><b>5:00 am</b> Sunrise gratitude circle. Say one thing you're grateful for. It should be Brother Eddy.</li>
+      <li><b>5:00 am</b> Sunrise gratitude circle. Say one thing you're grateful for. It should be Guru Eddy.</li>
       <li><b>6:00 am</b> Breakfast: oats we grew, milk we grew, and a feeling we grew.</li>
       <li><b>7:00 am</b> Fieldwork. Today's lesson: the zucchini doesn't complain, so why do you?</li>
       <li><b>12:00 pm</b> Lunch. Absolutely no processed food. A Dorito was found in 2019 and we still talk about it.</li>
       <li><b>1:00 pm</b> Mail time. Judith reads your letters first, for your growth.</li>
       <li><b>3:00 pm</b> Free time (supervised).</li>
       <li><b>6:00 pm</b> Communal dinner. Seating is assigned by aura.</li>
-      <li><b>8:00 pm</b> Nightly gathering. Attendance is required. Brother Eddy sings. All 14 verses.</li>
+      <li><b>8:00 pm</b> Nightly gathering. Attendance is required. Guru Eddy sings. All 14 verses.</li>
       <li><b>11:00 pm</b> Lights out. Someone will check.</li>
     </ul>
   </div>
@@ -229,7 +245,7 @@ footer .peace{font-size:2rem}
       <div class="value"><strong>Transparency</strong>We know where you are at all times. That's transparency, right?</div>
       <div class="value"><strong>Sustainability</strong>We waste nothing. Not food, not water, not new members.</div>
       <div class="value"><strong>Wellness</strong>Clean living, clean eating, and cleaned-out bank accounts.</div>
-      <div class="value"><strong>Equality</strong>Everyone is equal. Brother Eddy is just a little more equal, and he has the nicer cabin.</div>
+      <div class="value"><strong>Equality</strong>Everyone is equal. Guru Eddy is just a little more equal, and he has the nicer cabin.</div>
       <div class="value"><strong>Openness</strong>Our gates are always open. For coming in.</div>
     </div>
   </div>
@@ -253,7 +269,7 @@ footer .peace{font-size:2rem}
     <div class="quotes">
       <blockquote>"I came for a weekend retreat. That was eight months ago. 10/10, the kale is incredible."<cite>Sunflower, formerly Kevin from Accounting</cite></blockquote>
       <blockquote>"They took my cigarettes. I hid more. They found those and made me eat them. Honestly? I've never felt more seen."<cite>Probationer Dale, Day 9 (fingers crossed)</cite></blockquote>
-      <blockquote>"Brother Eddy looked at me through those amber glasses and I just knew. Knew what, I couldn't tell you. But I knew it."<cite>Meadow, Neophyte</cite></blockquote>
+      <blockquote>"Guru Eddy looked at me through those amber glasses and I just knew. Knew what, I couldn't tell you. But I knew it."<cite>Meadow, Neophyte</cite></blockquote>
       <blockquote>"My cousin got picked for the Project! She's at the sister farm now. She hasn't called, but I assume that's the no-phones thing."<cite>River, Neophyte</cite></blockquote>
       <blockquote>"Everything is going great and I am free to leave."<cite>Name withheld, read from a card</cite></blockquote>
     </div>
@@ -266,11 +282,11 @@ footer .peace{font-size:2rem}
     <h2>FAQ</h2>
     <details><summary>Is this a cult?</summary><p>It's a co-op.</p></details>
     <details><summary>But is it a cult though?</summary><p>It's a co-op. Next question.</p></details>
-    <details><summary>Can I leave whenever I want?</summary><p>Absolutely. Whenever you want to is up to you. What you want is up to Brother Eddy.</p></details>
+    <details><summary>Can I leave whenever I want?</summary><p>Absolutely. Whenever you want to is up to you. What you want is up to Guru Eddy.</p></details>
     <details><summary>What happens at the sister farm?</summary><p>Wonderful things. Growth. Wellness. Vitamins. Don't worry about it.</p></details>
     <details><summary>Why is there a barn with a reinforced steel door?</summary><p>Barns are like that now. Livestock got stronger.</p></details>
     <details><summary>Who is Judith?</summary><p>Judith is our Operations Director. She handles scheduling, logistics, your mail, your phone, your car, and your feelings about any of the above.</p></details>
-    <details><summary>Is Brother Eddy really a portal?</summary><p>He has said so many times, and he's wearing a headband, so we believe him.</p></details>
+    <details><summary>Is Guru Eddy really a portal?</summary><p>He has said so many times, and he's wearing a headband, so we believe him.</p></details>
     <details><summary>Do I have to be hot to join?</summary><p>No! All are welcome. It just, you know, helps with the vote.</p></details>
   </div>
 </section>
@@ -285,7 +301,7 @@ footer .peace{font-size:2rem}
       <li>All outgoing and incoming mail is read by Judith, for your growth.</li>
       <li>Phones, wallets, and car keys go in the Gratitude Basket on arrival.</li>
       <li>Nightly gathering is mandatory. Clapping on the one and three only.</li>
-      <li>Do not touch Brother Eddy's aviators. They are load-bearing.</li>
+      <li>Do not touch Guru Eddy's aviators. They are load-bearing.</li>
       <li>Stay away from the barn. There is nothing in the barn. Stay away from it.</li>
       <li>Never say the word "cult." The word is "co-op." It was a vote. You weren't here yet.</li>
     </ol>
@@ -305,7 +321,7 @@ footer .peace{font-size:2rem}
 
 <footer>
   <div class="peace">&#9774; &#9775; &#127803;</div>
-  <p>Echo Canyon Co-op is a Halloween party bit. Brother Eddy is a guy in a headband. No real farm, barn, sister farm, or vitamins exist. Nobody's stuff was taken in the making of this page.</p>
+  <p>Echo Canyon Co-op is a Halloween party bit. Guru Eddy is a guy in a headband. No real farm, barn, sister farm, or vitamins exist. Nobody's stuff was taken in the making of this page.</p>
   <p>&copy; Nobody. We don't believe in ownership.</p>
 </footer>
 
@@ -315,7 +331,7 @@ footer .peace{font-size:2rem}
     "Welcome, Probationer! Please hand your phone to the nearest person in a tunic.",
     "Application received. Just kidding, we didn't save anything. We don't believe in data. We believe in vibes.",
     "Your vote is scheduled for Day 10. Start smiling now. Don't stop.",
-    "Brother Eddy has sensed your aura. It's... fine. You're in.",
+    "Guru Eddy has sensed your aura. It's... fine. You're in.",
     "Congratulations! You have been selected for the Project. Please report to the barn. There is no barn.",
     "Judith has reviewed your application and your search history. Welcome.",
     "You're hot. You're in. That's the whole process."
@@ -349,23 +365,35 @@ footer .peace{font-size:2rem}
 <script>
 (function(){
   var g=document.getElementById('posters'), empty=document.getElementById('postersEmpty'), lb=document.getElementById('lightbox');
+  var rc=document.getElementById('rollcall'), pills=document.getElementById('pills'), rcCount=document.getElementById('rcCount');
   lb.addEventListener('click',function(){lb.classList.remove('on');});
+  function lastName(n){n=(n||'').trim().split(/\s+/).filter(function(w){return !/^(jr|sr|ii|iii|iv)\.?$/i.test(w);});return (n[n.length-1]||'').toLowerCase()+' '+n.join(' ').toLowerCase();}
+  function slug(p){return 'found-'+String(p.id||p.caption||'x').replace(/[^a-z0-9]+/gi,'-');}
   fetch('posters.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():[];}).then(function(list){
     if(!list||!list.length) return;
     empty.style.display='none';
-    list.forEach(function(p){
-      var f=document.createElement('figure'); f.className='poster';
+    list=list.slice().sort(function(a,b){return lastName(a.caption)<lastName(b.caption)?-1:1;});
+    rc.hidden=false; rcCount.textContent=list.length+(list.length==1?' soul found':' souls found');
+    list.forEach(function(p,i){
+      var f=document.createElement('figure'); f.className='poster'; f.id=slug(p);
       var img=document.createElement('img'); img.alt='FOUND: '+(p.caption||'a member'); img.loading='lazy';
       var fr=document.createElement('div'); fr.className='frame';
       var st=document.createElement('span'); st.className='stamp'; st.textContent='FOUND';
       fr.appendChild(img); fr.appendChild(st);
       var c=document.createElement('figcaption'); c.textContent=p.caption||'';
-      var ti=document.createElement('span'); ti.className='title'; ti.textContent=p.title||'Title pending review by Brother Eddy';
-      var du=document.createElement('span'); du.className='duty'; du.textContent=p.duty||'';
-      f.appendChild(fr); f.appendChild(c); f.appendChild(ti); if(p.duty) f.appendChild(du); g.appendChild(f);
+      var ti=document.createElement('span'); ti.className='title'; ti.textContent=p.title||'Title pending review by Guru Eddy';
+      f.appendChild(fr); f.appendChild(c); f.appendChild(ti);
+      if(p.duty){var du=document.createElement('span'); du.className='duty'; du.textContent=p.duty; f.appendChild(du);}
+      if(p.turnaround){var tu=document.createElement('span'); tu.className='turn'; var tb=document.createElement('b'); tb.textContent='The Turnaround'; tu.appendChild(tb); tu.appendChild(document.createTextNode(p.turnaround)); f.appendChild(tu);}
+      g.appendChild(f);
+      var a=document.createElement('a'); a.href='#'+f.id; a.innerHTML='<span class="n">'+String(i+1).padStart(2,'0')+'</span>'; a.appendChild(document.createTextNode(p.caption||'Unknown'));
+      a.addEventListener('click',function(e){e.preventDefault(); [].forEach.call(pills.children,function(x){x.classList.remove('on');}); a.classList.add('on');
+        f.scrollIntoView({behavior:'smooth',block:'start'}); f.classList.remove('flash'); void f.offsetWidth; f.classList.add('flash'); history.replaceState(null,'','#'+f.id);});
+      pills.appendChild(a);
       fetch(p.file,{cache:'force-cache'}).then(function(r){return r.text();}).then(function(d){img.src=d.trim();});
-      f.addEventListener('click',function(){ if(!img.src) return; lb.querySelector('img').src=img.src; lb.querySelector('img').alt=img.alt; lb.querySelector('p').textContent='FOUND: '+(p.caption||''); lb.querySelector('.t').textContent=(p.title||'Title pending review by Brother Eddy')+(p.duty?'. '+p.duty:''); lb.classList.add('on');});
+      f.addEventListener('click',function(){ if(!img.src) return; lb.querySelector('img').src=img.src; lb.querySelector('img').alt=img.alt; lb.querySelector('p').textContent='FOUND: '+(p.caption||''); lb.querySelector('.t').textContent=(p.title||'Title pending review by Guru Eddy')+(p.duty?'. '+p.duty:'')+(p.turnaround?' '+p.turnaround:''); lb.classList.add('on');});
     });
+    if(location.hash){var t=document.getElementById(location.hash.slice(1)); if(t) setTimeout(function(){t.scrollIntoView();},300);}
   }).catch(function(){});
 })();
 </script>
