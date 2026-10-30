@@ -76,6 +76,17 @@ details p{margin:.5em 0 0}
 .cta{text-align:center;background:var(--orange) !important;color:var(--cream)}
 .cta h2{color:var(--cream);text-shadow:3px 3px 0 var(--brown)}
 #joke{min-height:3.5em;margin-top:18px;font-weight:700;font-size:1.1rem;background:var(--brown);color:var(--sand);border-radius:16px;padding:14px;display:none}
+/* posters */
+.posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.poster{margin:0;background:#fff;border:3px solid var(--brown);border-radius:6px;padding:8px;box-shadow:5px 5px 0 var(--rust);cursor:zoom-in;transform:rotate(1deg)}
+.poster:nth-child(even){transform:rotate(-1.5deg)}
+.poster img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--sand)}
+.poster figcaption{font-family:'Shrikhand',serif;font-size:1.25rem;color:var(--rust);text-align:center;margin-top:6px;line-height:1.1}
+.lightbox{position:fixed;inset:0;background:rgba(40,24,12,.92);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:50;padding:16px;cursor:zoom-out}
+.lightbox.on{display:flex}
+.lightbox img{max-width:100%;max-height:85vh;border:4px solid var(--cream);border-radius:6px}
+.lightbox p{color:var(--cream);font-family:'Shrikhand',serif;font-size:1.5rem;margin:.5em 0 0;text-align:center}
+@media(min-width:700px){.posters{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}}
 /* gallery */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .gallery figure{margin:0;background:var(--cream);border:3px solid var(--brown);border-radius:14px;padding:8px 8px 6px;box-shadow:4px 4px 0 var(--orange);transform:rotate(-1deg)}
@@ -112,6 +123,17 @@ footer .peace{font-size:2rem}
     <h2>It's not a cult. It's a co-op.</h2>
     <p>Tucked away on 40 peaceful acres with no cell service (on purpose), Echo Canyon is a cooperative farm where everyone shares everything: the work, the harvest, the bunkhouse, and especially your savings account.</p>
     <p>Our spiritual guide, <strong>Brother Eddy</strong>, is a visionary, a gardener, and, according to Brother Eddy, a portal. He found enlightenment at the bottom of a pair of amber aviators and has been generously sharing it ever since. Usually with an acoustic guitar. Usually for a long time.</p>
+  </div>
+</section>
+
+<section id="missing">
+  <div class="wrap">
+    <div class="kicker">Community notice board</div>
+    <h2>Missing Members</h2>
+    <p>These beloved members were last seen leaving for the sister farm. If found, do not return them. They are thriving. Probably. Tap a poster to see if it's you.</p>
+    <div class="posters" id="posters">
+      <div class="empty" id="postersEmpty">Nobody is missing. Everyone is accounted for. Everyone is fine.</div>
+    </div>
   </div>
 </section>
 
@@ -274,6 +296,8 @@ footer .peace{font-size:2rem}
   </div>
 </section>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Poster full size"><img alt=""><p></p></div>
+
 <footer>
   <div class="peace">&#9774; &#9775; &#127803;</div>
   <p>Echo Canyon Co-op is a Halloween party bit. Brother Eddy is a guy in a headband. No real farm, barn, sister farm, or vitamins exist. Nobody's stuff was taken in the making of this page.</p>
@@ -313,6 +337,24 @@ footer .peace{font-size:2rem}
       f.innerHTML='<img alt="'+esc(p.caption||'Co-op member')+'" loading="lazy"><figcaption>'+esc(p.caption||'')+'</figcaption>';
       g.appendChild(f);
       fetch(p.file,{cache:'force-cache'}).then(function(r){return r.text();}).then(function(d){f.querySelector('img').src=d.trim();});
+    });
+  }).catch(function(){});
+})();
+</script>
+<script>
+(function(){
+  var g=document.getElementById('posters'), empty=document.getElementById('postersEmpty'), lb=document.getElementById('lightbox');
+  lb.addEventListener('click',function(){lb.classList.remove('on');});
+  fetch('posters.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():[];}).then(function(list){
+    if(!list||!list.length) return;
+    empty.style.display='none';
+    list.forEach(function(p){
+      var f=document.createElement('figure'); f.className='poster';
+      var img=document.createElement('img'); img.alt='MISSING: '+(p.caption||'a member'); img.loading='lazy';
+      var c=document.createElement('figcaption'); c.textContent=p.caption||'';
+      f.appendChild(img); f.appendChild(c); g.appendChild(f);
+      fetch(p.file,{cache:'force-cache'}).then(function(r){return r.text();}).then(function(d){img.src=d.trim();});
+      f.addEventListener('click',function(){ if(!img.src) return; lb.querySelector('img').src=img.src; lb.querySelector('img').alt=img.alt; lb.querySelector('p').textContent='MISSING: '+(p.caption||''); lb.classList.add('on');});
     });
   }).catch(function(){});
 })();
