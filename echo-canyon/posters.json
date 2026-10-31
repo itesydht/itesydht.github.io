@@ -25,5 +25,359 @@
   "title": "Chief Vibes Triage Officer",
   "duty": "Takes the co-op's emotional temperature hourly and prescribes two s'mores and a group hug. Accepts no insurance, only good vibes.",
   "turnaround": "Last seen: checking her phone about a patient's health. Now found: on call for the whole co-op, and her only patient is everyone's aura."
+ },
+ {
+  "id": "20261030-201000",
+  "file": "posters/20261030-201000.txt",
+  "caption": "Natalie Aubin",
+  "added": "2026-10-30T20:10:00-0400",
+  "title": "Head of Sourdough Outreach",
+  "duty": "Hands jars of starter to total strangers until they become family. The co-op's bread has never been more alive.",
+  "turnaround": "Last seen: sharing sourdough starter with a stranger. Now found: the stranger was the co-op. We have bread now. So much bread."
+ },
+ {
+  "id": "20261030-201001",
+  "file": "posters/20261030-201001.txt",
+  "caption": "Eddy Simmons",
+  "added": "2026-10-30T20:10:01-0400",
+  "title": "Guru Eddy, Founder and Supreme Vibe Architect",
+  "duty": "Leads the morning chant, approves every snack, and is DEFINITELY NOT running a cult. It's a co-op. Totally different paperwork.",
+  "turnaround": "Last seen: talking tech and testosterone with Craig, who appeared to be low on testosterone. Now found: leading the entire co-op. Craig's levels are now under the Guru's personal supervision. Erin has approved this message.",
+  "special": "guru"
+ },
+ {
+  "id": "20261030-201002",
+  "file": "posters/20261030-201002.txt",
+  "caption": "Rodney Bryant",
+  "added": "2026-10-30T20:10:02-0400",
+  "title": "Director of Emotional Recovery, Sports Division",
+  "duty": "Runs the co-op support circle for fans of disappointing football teams. Meets every Monday. Attendance is very high.",
+  "turnaround": "Last seen: hiding from embarrassment over the latest Cowboys loss. Now found: safe in Echo Canyon, where there is no TV signal and the Cowboys can't hurt him anymore. Meredyth confirms he is healing."
+ },
+ {
+  "id": "20261030-201003",
+  "file": "posters/20261030-201003.txt",
+  "caption": "Talan Davis",
+  "added": "2026-10-30T20:10:03-0400",
+  "title": "Minister of Outerwear",
+  "duty": "Makes sure every member is dressed in proper waxed cotton for the end times. Fittings on Tuesdays.",
+  "turnaround": "Last seen: leaving Franco's Fine Clothier in his new Barbour jacket. Now found: still in the jacket. It has not come off. The Davis family has stopped asking."
+ },
+ {
+  "id": "20261030-201004",
+  "file": "posters/20261030-201004.txt",
+  "caption": "Lloyd Zelazny",
+  "added": "2026-10-30T20:10:04-0400",
+  "title": "Keeper of the Lost Ball",
+  "duty": "Searches the canyon daily for any ball, any tee shot, any dream. Swears every single one landed in the fairway.",
+  "turnaround": "Last seen: near The Federal Club golf course searching for a tee shot he swears landed in the fairway. Now found: still searching. The co-op declared the whole canyon a fairway so he can finally be right."
+ },
+ {
+  "id": "20261030-201005",
+  "file": "posters/20261030-201005.txt",
+  "caption": "Bernie Stanley",
+  "added": "2026-10-30T20:10:05-0400",
+  "title": "Honorary Hero of the Co-op",
+  "duty": "The toughest member we have. Shows the whole co-op what showing up looks like, every single day, cowboy hat on.",
+  "turnaround": "Last seen: fighting. Every day. F*** Cancer. Now found: still fighting, and the entire co-op is in his corner. Bernie, you never walk alone in Echo Canyon.",
+  "special": "hero"
+ },
+ {
+  "id": "20261030-201006",
+  "file": "posters/20261030-201006.txt",
+  "caption": "Luke Mundie",
+  "added": "2026-10-30T20:10:06-0400",
+  "title": "Head of Front Row Logistics",
+  "duty": "Gets the co-op to the front of any crowd, any concert, any line. No barricade is safe.",
+  "turnaround": "Last seen: sprinting toward the barricade at the Zach Bryan concert on 4/18. Now found: front row at the co-op campfire singalong. He got there three hours early. There are twelve of us."
+ },
+ {
+  "id": "20261030-201007",
+  "file": "posters/20261030-201007.txt",
+  "caption": "Jaime Mundie",
+  "added": "2026-10-30T20:10:07-0400",
+  "title": "Most Wanted Member, Reward Still Pending",
+  "duty": "Handles emergency supply runs at speeds the co-op does not legally endorse. Dislikes people. Loves the co-op. Insists that is different.",
+  "turnaround": "Last seen (WANTED, $5,000 reward): weaving in and out of traffic at 90 MPH in a red BMW, known to crash out. Now found: the co-op paid the reward to itself and handed her the van keys. Do not approach before coffee.",
+  "special": "wanted"
+ },
+ {
+  "id": "20261030-201008",
+  "file": "posters/20261030-201008.txt",
+  "caption": "Reagan Mundie",
+  "added": "2026-10-30T20:10:08-0400",
+  "title": "Chief Feline Media Officer",
+  "duty": "Runs the co-op's official cat slideshow. Attendance is mandatory. There are 400 slides.",
+  "turnaround": "Last seen: forcing her family, friends, and coworkers to look at photos of her cat. Now found: doing the same thing to the whole co-op. Luke and Jaime have seen every photo. Twice."
+ },
+ {
+  "id": "20261030-201009",
+  "file": "posters/20261030-201009.txt",
+  "caption": "Erin Simmons",
+  "added": "2026-10-30T20:10:09-0400",
+  "title": "First Lady of Echo Canyon",
+  "duty": "The real boss of the co-op. Guru Eddy gives the speeches. Erin makes the decisions.",
+  "turnaround": "Last seen: living her best life at Seacrets. Now found: back in Echo Canyon, still the most fun person at any beach bar, and the only member Guru Eddy is afraid of. Official co-op vacation planner."
+ },
+ {
+  "id": "20261030-201010",
+  "file": "posters/20261030-201010.txt",
+  "caption": "Karleigh Bohannon",
+  "added": "2026-10-30T20:10:10-0400",
+  "title": "Canine Recruitment Director",
+  "duty": "Recruits new members, mostly the four-legged kind. Every co-op meeting now has a dog for every human.",
+  "turnaround": "Last seen: leaving Hanover County Animal Protection with 4 adopted dogs. Now found: in Echo Canyon with all 4 dogs, who were voted in unanimously. They outrank Craig."
+ },
+ {
+  "id": "20261030-201011",
+  "file": "posters/20261030-201011.txt",
+  "caption": "Jared Wright",
+  "added": "2026-10-30T20:10:11-0400",
+  "title": "Queso Quality Inspector",
+  "duty": "Hovers. Watches. Tastes. Works with Craig: Craig protects the snack table, Jared protects the queso from Craig.",
+  "turnaround": "Last seen: hovering over queso. Now found: still hovering over queso, now as Craig's official queso buddy. Between the two of them, no dip in the canyon survives past 9 PM."
+ },
+ {
+  "id": "20261030-201012",
+  "file": "posters/20261030-201012.txt",
+  "caption": "Meredyth Bryant",
+  "added": "2026-10-30T20:10:12-0400",
+  "title": "Head of Tailgate Glamour",
+  "duty": "Runs the pregame for every co-op event and somehow looks this good doing it. Rodney handles the grill and the emotional damage.",
+  "turnaround": "Last seen: tailgating and looking beautiful at JMU. Now found: tailgating and looking beautiful in Echo Canyon, and consoling Rodney after every Cowboys game."
+ },
+ {
+  "id": "20261030-201013",
+  "file": "posters/20261030-201013.txt",
+  "caption": "Gavin Davis",
+  "added": "2026-10-30T20:10:13-0400",
+  "title": "Master of the Duck Blind",
+  "duty": "Leads silent waiting exercises, a core co-op discipline. Can sit still for six hours. Teaches members to quack on cue.",
+  "turnaround": "Last seen: leaving the duck blind. Now found: building a brand new duck blind in Echo Canyon. The ducks have filed a complaint with Guru Eddy."
+ },
+ {
+  "id": "20261030-201014",
+  "file": "posters/20261030-201014.txt",
+  "caption": "Maya Beerling",
+  "added": "2026-10-30T20:10:14-0400",
+  "title": "Chief Workplace Correction Officer",
+  "duty": "Tells every man in the co-op how to do his job. She is usually right. That is the problem.",
+  "turnaround": "Last seen: telling a man how to do his job. Now found: telling Guru Eddy how to do his. The co-op has never run better."
+ },
+ {
+  "id": "20261030-201015",
+  "file": "posters/20261030-201015.txt",
+  "caption": "Jamie Martin",
+  "added": "2026-10-30T20:10:15-0400",
+  "title": "Official Co-op Embroiderer",
+  "duty": "Stitches every member's name onto a cozy robe. Wears sweats to every ceremony and makes it look formal.",
+  "turnaround": "Last seen: in sweats at her embroidery machine. Now found: in sweats at her embroidery machine, stitching DEFINITELY NOT A CULT onto 40 matching robes."
+ },
+ {
+  "id": "20261030-201016",
+  "file": "posters/20261030-201016.txt",
+  "caption": "Hayden Firebaugh",
+  "added": "2026-10-30T20:10:16-0400",
+  "title": "Director of Dance Floor Morale",
+  "duty": "Revives any gathering with the Dougie. Works holidays, weekends, and especially New Year's Eve.",
+  "turnaround": "Last seen: doing the Dougie on NYE. Now found: still doing the Dougie. It has been months. He will not stop, and the co-op respects it."
+ },
+ {
+  "id": "20261030-201017",
+  "file": "posters/20261030-201017.txt",
+  "caption": "Hunter Townsend",
+  "added": "2026-10-30T20:10:17-0400",
+  "title": "Former Regular, Blackwater Cafe Division",
+  "duty": "Leads the co-op's Places We No Longer Go support group. Still wearing the REDNECK hat.",
+  "turnaround": "Last seen: at Blackwater Cafe. More appropriately, no longer seen at Blackwater Cafe. Now found: in Echo Canyon, where he is very much still welcome."
+ },
+ {
+  "id": "20261030-201018",
+  "file": "posters/20261030-201018.txt",
+  "caption": "Hailey Bendle",
+  "added": "2026-10-30T20:10:18-0400",
+  "title": "Ambassador to the Colbert Residence",
+  "duty": "Handles co-op diplomatic relations with one specific house. Nobody else has been invited.",
+  "turnaround": "Last seen: at the Colbert residence. Now found: the co-op followed the trail straight to the Colbert residence. She was there. She is always there."
+ },
+ {
+  "id": "20261030-201019",
+  "file": "posters/20261030-201019.txt",
+  "caption": "Eric Rankin",
+  "added": "2026-10-30T20:10:19-0400",
+  "title": "Chief Cartoon Correspondent",
+  "duty": "Runs the co-op's nightly educational screening. The curriculum is entirely SpongeBob.",
+  "turnaround": "Last seen: binge-watching SpongeBob. Now found: hosting the co-op's Bikini Bottom watch party. Attendance is suspiciously high."
+ },
+ {
+  "id": "20261030-201020",
+  "file": "posters/20261030-201020.txt",
+  "caption": "Riley Nuckles",
+  "added": "2026-10-30T20:10:20-0400",
+  "title": "Self-Found Pioneer",
+  "duty": "The only member who made her own missing poster. Found in record time, because she told us where she was.",
+  "turnaround": "Last seen: crafting her own missing person flyer. Now found: the flyer worked. She now designs every poster on this board."
+ },
+ {
+  "id": "20261030-201021",
+  "file": "posters/20261030-201021.txt",
+  "caption": "Casey Joyce",
+  "added": "2026-10-30T20:10:21-0400",
+  "title": "Head of Graceful Exits",
+  "duty": "Teaches the co-op how to leave any venue with dignity, ideally on his own two feet.",
+  "turnaround": "Last seen: being escorted out of Home Team Grill. Now found: escorted straight into the co-op, where nobody escorts anyone anywhere. Mostly."
+ },
+ {
+  "id": "20261030-201022",
+  "file": "posters/20261030-201022.txt",
+  "caption": "Tonda Arthur",
+  "added": "2026-10-30T20:10:22-0400",
+  "title": "Co-op Rodeo Director",
+  "duty": "Breaks in every new member like a mechanical bull. Eight seconds or you do the dishes.",
+  "turnaround": "Last seen: riding the mechanical bull at Scotty's Taphouse. Now found: holder of the co-op bull riding record. Nobody else has stayed on past three seconds."
+ },
+ {
+  "id": "20261030-201023",
+  "file": "posters/20261030-201023.txt",
+  "caption": "David Powers",
+  "added": "2026-10-30T20:10:23-0400",
+  "title": "Minister of International Recruitment",
+  "duty": "Spreads the good word of the co-op across continents. Frequent flyer, infrequent explainer.",
+  "turnaround": "Last seen: boarding a flight to China. Now found: back in Echo Canyon with souvenirs for everyone. Monica checked his aura at the gate and cleared him."
+ },
+ {
+  "id": "20261030-201024",
+  "file": "posters/20261030-201024.txt",
+  "caption": "Adam Webb",
+  "added": "2026-10-30T20:10:24-0400",
+  "title": "Head of High Places",
+  "duty": "Hangs co-op banners from great heights using a bucket truck nobody can confirm he is allowed to use.",
+  "turnaround": "Last seen: boomed up in a blue Comcast bucket truck. Now found: still up there. Ellen sends lunch up on a rope. The canyon Wi-Fi has never been better."
+ },
+ {
+  "id": "20261030-201025",
+  "file": "posters/20261030-201025.txt",
+  "caption": "Shannon Davis",
+  "added": "2026-10-30T20:10:25-0400",
+  "title": "Patron Saint of Waiting Patiently",
+  "duty": "Teaches the co-op patience workshop. Lesson one: wait for Keith. There is only lesson one.",
+  "turnaround": "Last seen: waiting on her husband as he shuts down Gus' Bar & Grill. Now found: still waiting on Keith, but now in a comfy co-op chair with a blanket and snacks."
+ },
+ {
+  "id": "20261030-201026",
+  "file": "posters/20261030-201026.txt",
+  "caption": "Keith Davis",
+  "added": "2026-10-30T20:10:26-0400",
+  "title": "Closing Time Coordinator",
+  "duty": "Turns off every light at every co-op party. Eventually. Shannon is in the car.",
+  "turnaround": "Last seen: shutting down Gus' Bar & Grill. Now found: shutting down the co-op campfire every night. Shannon has been waiting since 9."
+ },
+ {
+  "id": "20261030-201027",
+  "file": "posters/20261030-201027.txt",
+  "caption": "Amy Covey",
+  "added": "2026-10-30T20:10:27-0400",
+  "title": "Chief People Watching Analyst",
+  "duty": "Monitors co-op activity from a comfy chair with her besties and her boyfriend. Files detailed reports. Mostly gossip.",
+  "turnaround": "Last seen: at The Federal Club Golf, people watching with her besties and boyfriend. Now found: people watching the co-op. She has notes on all of us. Lloyd's ball is in the rough."
+ },
+ {
+  "id": "20261030-201028",
+  "file": "posters/20261030-201028.txt",
+  "caption": "Chris Wells",
+  "added": "2026-10-30T20:10:28-0400",
+  "title": "Golf Cart Patrol Captain",
+  "duty": "Patrols Echo Canyon by golf cart until curfew, and occasionally a little after.",
+  "turnaround": "Last seen: cruising Bethpage Campground on his golf cart till curfew. Now found: on patrol in Echo Canyon. Curfew has been moved for him twice."
+ },
+ {
+  "id": "20261030-201029",
+  "file": "posters/20261030-201029.txt",
+  "caption": "Ellen Webb",
+  "added": "2026-10-30T20:10:29-0400",
+  "title": "Co-op Tennis Champion",
+  "duty": "Holds the co-op's only trophy and reminds us about it daily. Also sends Adam his lunch up the bucket truck.",
+  "turnaround": "Last seen: celebrating her win on the tennis court at Burkwood. Now found: still celebrating. The co-op made the trophy bigger."
+ },
+ {
+  "id": "20261030-201030",
+  "file": "posters/20261030-201030.txt",
+  "caption": "Eric Director",
+  "added": "2026-10-30T20:10:30-0400",
+  "title": "Federal Club Liaison",
+  "duty": "Maintains diplomatic relations between the co-op and The Federal Club. Spends a lot of time on the diplomacy.",
+  "turnaround": "Last seen: at The Federal Club, where he's been known to frequent. Now found: Mindy knew exactly where to look. Co-op meetings now happen at the 19th hole to save time."
+ },
+ {
+  "id": "20261030-201031",
+  "file": "posters/20261030-201031.txt",
+  "caption": "Mindy Director",
+  "added": "2026-10-30T20:10:31-0400",
+  "title": "Minister of Sorority Hype",
+  "duty": "Likes every Phi Mu post in the known universe within 30 seconds. Now aims that energy at the co-op newsletter.",
+  "turnaround": "Last seen: hyping every Phi Mu sorority sister on Facebook, not limited to VCU. Now found: hyping every co-op member too. Eric gets two likes a day, max."
+ },
+ {
+  "id": "20261030-201032",
+  "file": "posters/20261030-201032.txt",
+  "caption": "Ainsley Belhumeur",
+  "added": "2026-10-30T20:10:32-0400",
+  "title": "Co-op Traffic Safety Officer",
+  "duty": "Leads the co-op's defensive driving class. Jaime Mundie is not allowed to attend.",
+  "turnaround": "Last seen: waiting for an officer after a fender bender. Now found: the co-op showed up first. She is safe, and Jaime Mundie has been asked to keep her distance."
+ },
+ {
+  "id": "20261030-201033",
+  "file": "posters/20261030-201033.txt",
+  "caption": "Kathryn Grace",
+  "added": "2026-10-30T20:10:33-0400",
+  "title": "Late Night Snack Strategist",
+  "duty": "Runs the co-op's 2 AM kitchen. Snacks are big, portions are bigger, and the camera is always rolling.",
+  "turnaround": "Last seen: having a late-night kitchen mukbang with friends at 2 AM before bed. Now found: hosting the co-op's official 2 AM mukbang. Jared brought the queso."
+ },
+ {
+  "id": "20261030-201034",
+  "file": "posters/20261030-201034.txt",
+  "caption": "Amy Poythress",
+  "added": "2026-10-30T20:10:34-0400",
+  "title": "Director of Unknown Whereabouts",
+  "duty": "Always off on another adventure. The co-op does not know where she is right now, and that is her whole job.",
+  "turnaround": "Last seen: well, nobody can remember where. She's always off on another adventure! Now found: briefly. Then she left on another adventure. A fellow Poythress is holding her spot."
+ },
+ {
+  "id": "20261030-201035",
+  "file": "posters/20261030-201035.txt",
+  "caption": "Alison Stanley",
+  "added": "2026-10-30T20:10:35-0400",
+  "title": "Karaoke Champion of the Canyon",
+  "duty": "Leads every campfire song. Undefeated. Taking requests, not challengers.",
+  "turnaround": "Last seen: winning the local karaoke contest. Now found: winning the co-op karaoke contest too. The Stanley cheering section is the loudest in the canyon."
+ },
+ {
+  "id": "20261030-201036",
+  "file": "posters/20261030-201036.txt",
+  "caption": "Logan Davis",
+  "added": "2026-10-30T20:10:36-0400",
+  "title": "Dessert Logistics Director",
+  "duty": "Orders the co-op's ice cream. Four scoops minimum. Toppings are not optional.",
+  "turnaround": "Last seen: at Gelati Celesti asking for 4 scoops of ice cream and extra toppings. Now found: running the co-op sundae bar. Every Davis now gets 5 scoops."
+ },
+ {
+  "id": "20261030-201037",
+  "file": "posters/20261030-201037.txt",
+  "caption": "Rudy Lancaster",
+  "added": "2026-10-30T20:10:37-0400",
+  "title": "Concrete Whisperer",
+  "duty": "Has deep conversations with construction materials. They are excellent listeners.",
+  "turnaround": "Last seen: talking VT football to a curing concrete slab. Now found: still talking. The slab has fully cured and is now a Hokies fan."
+ },
+ {
+  "id": "20261030-201038",
+  "file": "posters/20261030-201038.txt",
+  "caption": "Tara Kilpatrick",
+  "added": "2026-10-30T20:10:38-0400",
+  "title": "Head of Crowd Surfing Operations",
+  "duty": "Gets the co-op off its feet and onto the crowd. Craig guards the snacks. Tara guards the vibes.",
+  "turnaround": "Last seen: at Country Calling Music Festival, reportedly crowd surfing during Miranda Lambert's set. Now found: crowd surfing over the co-op campfire while Craig spots her from the snack table."
  }
 ]
