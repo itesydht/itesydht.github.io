@@ -25,5 +25,16 @@ Remove: ./add_photo.sh --poster --remove <id>, push posters.json, delete_file ec
 - Found Members search: sticky "Type your name to find yourself" combobox built from posters.json. Matches first/last names, case-insensitive, full-name prefix > word prefix > substring, up to 8 results; arrows/Enter/Escape; selecting scrolls to and flashes the card. No match: "Not found yet. The co-op is still looking for you."
 - Roll call pills replaced by a collapsible "Show the whole roll call" grid.
 - posters.json "special": guru (FOUNDER stamp, gold), hero (HERO stamp), wanted (CAUGHT stamp). Default stamp FOUND.
-- Guest book form POSTs to https://formsubmit.co/eddy@mail.grokbot.com (fields name, found_member, message; _template=table, _captcha=false, _honey honeypot, _next=...?joined=1#join shows the thank-you panel). FormSubmit needs a one-time activation: the first submission sends a confirm email to eddy@mail.grokbot.com; nothing is delivered until it is confirmed.
+- Guest book form POSTs to https://formsubmit.co/150993492d857dc0c3e15f2655032f48 (FormSubmit alias for eddy@mail.grokbot.com; activated 2026-10-30) (fields name, found_member, message; _template=table, _captcha=false, _honey honeypot, _next=...?joined=1#join shows the thank-you panel).
 - Batch tooling: batch/entries.py + batch/crop.py. Bernie and Kathryn poster images have the bottom caption line redacted (F*** Cancer / no "naked").
+
+## Testimonies from the Found (wall right after the hero)
+- Page fetches testimonies.json?v=<now> (no-store), shows newest first (by time), 12 at a time with a "Show more" button. Empty state: "No testimonies yet. Be the first to confess."
+- Entry format: {"id","name","member","message","time"}; everything is rendered with textContent (no HTML), times shown in ET.
+- Add one (after reading the FormSubmit email in eddy@mail.grokbot.com and deciding it should go up):
+    ./add_testimony.sh "Name" "Found Member or empty" "Message" "2026-10-30T21:15:00-04:00"
+  ISO time optional (defaults to now). Name/member capped at 60 chars, message at 400 (adds "..."), control chars stripped, em/en dashes replaced. JSON-escaped by Python.
+- Then ONE push: CallDynamicTool user-GitHub-xai push_files with the owner/repo/branch/message/files from .deploy/push.json:
+    {"owner":"itesydht","repo":"itesydht.github.io","branch":"main","message":"Echo Canyon: testimony from <Name>",
+     "files":[{"path":"echo-canyon/testimonies.json","content":"$file:/workspace/echo-canyon/testimonies.json"}]}
+- Remove/edit: edit testimonies.json by hand (keep valid JSON), push the same spec. Do not post test entries (e.g. "Bob test").

@@ -131,6 +131,21 @@ form.joinf textarea{min-height:140px;resize:vertical}
 #thanks{display:none;background:#0f2a12;border:3px solid var(--acid);border-radius:18px;padding:20px;margin-bottom:20px;font-size:1.15rem}
 #thanks.on{display:block}
 #thanks b{font-family:'Bungee',sans-serif;font-weight:400;color:var(--acid);display:block;font-size:1.4rem;margin-bottom:6px}
+/* testimonies */
+#wall{background:linear-gradient(#1a0d1f,#0e0a14);border-top:3px solid var(--acid)}
+.tlist{display:grid;gap:18px}
+.tcard{position:relative;background:var(--panel);border:3px solid var(--violet);border-radius:18px;padding:18px 18px 14px;box-shadow:0 0 22px rgba(180,140,255,.18)}
+.tcard:nth-child(3n+2){border-color:var(--acid);box-shadow:0 0 22px rgba(125,255,106,.15)}
+.tcard:nth-child(3n+3){border-color:var(--blood);box-shadow:0 0 22px rgba(255,45,74,.18)}
+.tcard .tmsg{font-size:1.2rem;line-height:1.5;margin:0 0 12px;white-space:pre-line;overflow-wrap:anywhere}
+.tcard .tmsg::before{content:"\201C";font-family:'Creepster',cursive;color:var(--gold);font-size:2.4rem;line-height:0;vertical-align:-.35em;margin-right:4px}
+.tcard .twho{font-family:'Bungee',sans-serif;font-size:1.15rem;color:#fff;overflow-wrap:anywhere}
+.tcard .tmem{display:block;font-weight:700;color:var(--gold);font-size:1.05rem;margin-top:2px;overflow-wrap:anywhere}
+.tcard .twhen{display:block;color:var(--dim);font-size:1rem;margin-top:4px}
+.tempty{text-align:center;background:var(--panel);border:3px dashed var(--violet);border-radius:18px;padding:26px 18px}
+.tempty b{display:block;font-family:'Bungee',sans-serif;font-weight:400;color:var(--gold);font-size:1.5rem;margin-bottom:8px}
+.tmore{margin-top:18px}
+[hidden]{display:none!important}
 .lightbox{position:fixed;inset:0;background:rgba(5,3,8,.95);display:none;align-items:center;justify-content:center;flex-direction:column;z-index:60;padding:16px;cursor:zoom-out}
 .lightbox.on{display:flex}
 .lightbox img{max-width:100%;max-height:78vh;border:4px solid var(--ink);border-radius:8px}
@@ -155,6 +170,16 @@ footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 4
     <a class="btn red" href="#join">Sign the guest book &#9760;</a>
   </div>
 </header>
+
+<section id="wall" aria-labelledby="wallh">
+  <div class="wrap">
+    <div class="kicker">Live From the Canyon</div>
+    <h2 id="wallh">Testimonies from the Found</h2>
+    <p class="host">These are real words from real contestants. None of them were coerced. Please do not blink twice if you agree.</p>
+    <div class="tlist" id="tlist"><div class="tempty"><b>No testimonies yet.</b>Be the first to confess. The co-op is listening. The co-op is always listening.<br><br><a class="btn red" href="#join">Confess now &#9760;</a></div></div>
+    <button type="button" class="btn tmore" id="tmore" hidden>Show more testimonies</button>
+  </div>
+</section>
 
 <main>
 <section id="missing">
@@ -335,7 +360,7 @@ footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 4
     <h2>Sign the Guest Book</h2>
     <div id="thanks" role="status" tabindex="-1"><b>You have been processed.</b>Guru Eddy has received your message. Your soul has been filed under "Very Promising." Please remain calm and enjoy the party.</div>
     <p class="host">Leave your name and a word for Guru Eddy. Compliments, confessions, and complaints are all accepted. Complaints are read aloud at the nightly gathering.</p>
-    <form class="joinf" id="joinf" action="https://formsubmit.co/eddy@mail.grokbot.com" method="POST">
+    <form class="joinf" id="joinf" action="https://formsubmit.co/150993492d857dc0c3e15f2655032f48" method="POST">
       <input type="hidden" name="_subject" value="Echo Canyon guest book: new co-op signup">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -345,7 +370,8 @@ footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 4
       <div><label for="f-member">Which Found Member are you? <span class="opt">(optional)</span></label><input id="f-member" name="found_member" type="text" list="memberlist" autocomplete="off" placeholder="Start typing your poster name"><datalist id="memberlist"></datalist></div>
       <div><label for="f-msg">Your message to Guru Eddy <span class="opt">(optional)</span></label><textarea id="f-msg" name="message" placeholder="I would like to report a sighting..."></textarea></div>
       <button class="btn red" type="submit" id="joinBtn">Submit to the co-op &#9760;</button>
-      <p class="privacy">What happens to this: your name and message are emailed to Guru Eddy so he can see who signed in. Nothing else is collected, nothing is sold, and there is no mailing list. The co-op has standards. Low ones, but standards.</p>
+      <p class="privacy" style="font-size:1.1rem;color:var(--gold);font-weight:700">Your testimony may appear on the wall. Guru Eddy sees all.</p>
+      <p class="privacy">What happens to this: your name, member pick, and message are emailed to Guru Eddy, who may post them on the Testimonies wall above. Nothing else is collected, nothing is sold, and there is no mailing list. The co-op has standards. Low ones, but standards.</p>
     </form>
   </div>
 </section>
@@ -364,6 +390,27 @@ footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 4
   var g=document.getElementById('posters'), empty=document.getElementById('postersEmpty'), lb=document.getElementById('lightbox');
   var sb=document.getElementById('searchbar'), q=document.getElementById('findme'), ul=document.getElementById('sugg'), clr=document.getElementById('clearq');
   var rcCount=document.getElementById('rcCount'), roll=document.getElementById('roll'), rollgrid=document.getElementById('rollgrid'), dl=document.getElementById('memberlist');
+  (function(){
+    var tl=document.getElementById('tlist'), more=document.getElementById('tmore'), PAGE=12, all=[], shownN=0;
+    function when(s){var d=new Date(s); if(isNaN(d)) return ''; try{return d.toLocaleString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' ET';}catch(e){return d.toLocaleString();}}
+    function card(x){
+      var c=document.createElement('article'); c.className='tcard';
+      var m=document.createElement('p'); m.className='tmsg'; m.textContent=String(x.message||'').slice(0,420);
+      var w=document.createElement('div'); w.className='twho'; w.textContent=String(x.name||'Anonymous Contestant').slice(0,60);
+      c.appendChild(m); c.appendChild(w);
+      if(x.member){var mm=document.createElement('span'); mm.className='tmem'; mm.textContent='Found Member: '+String(x.member).slice(0,60); c.appendChild(mm);}
+      var tw=document.createElement('span'); tw.className='twhen'; tw.textContent=when(x.time); c.appendChild(tw);
+      return c;
+    }
+    function render(){ all.slice(shownN,shownN+PAGE).forEach(function(x){tl.appendChild(card(x));}); shownN=Math.min(all.length,shownN+PAGE); more.hidden=shownN>=all.length; }
+    more.addEventListener('click',render);
+    fetch('testimonies.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():[];}).then(function(list){
+      if(!Array.isArray(list)) return;
+      all=list.filter(function(x){return x&&x.message;}).sort(function(a,b){return (Date.parse(b.time)||0)-(Date.parse(a.time)||0);});
+      if(!all.length) return;
+      tl.innerHTML=''; render();
+    }).catch(function(){});
+  })();
   var STAMP={guru:'FOUNDER',hero:'HERO',wanted:'CAUGHT'};
   lb.addEventListener('click',function(){lb.classList.remove('on');});
   if(/[?&]joined=1/.test(location.search)){var th=document.getElementById('thanks'); th.classList.add('on'); setTimeout(function(){th.scrollIntoView({block:'center'}); th.focus({preventScroll:true});},200);}
