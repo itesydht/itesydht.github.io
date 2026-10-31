@@ -38,3 +38,9 @@ Remove: ./add_photo.sh --poster --remove <id>, push posters.json, delete_file ec
     {"owner":"itesydht","repo":"itesydht.github.io","branch":"main","message":"Echo Canyon: testimony from <Name>",
      "files":[{"path":"echo-canyon/testimonies.json","content":"$file:/workspace/echo-canyon/testimonies.json"}]}
 - Remove/edit: edit testimonies.json by hand (keep valid JSON), push the same spec. Do not post test entries (e.g. "Bob test").
+
+## v4 two-page layout (2026-10-30)
+- index.html (home, the QR target): hero + one huge "FIND YOURSELF: Found Members" button -> found.html, Testimonies wall (testimonies.json), 3 house-rule one-liners, guest book form (FormSubmit alias, _next=https://itesydht.github.io/echo-canyon/?joined=1#join shows the thank-you panel), tiny footer.
+- found.html: Back to home / Sign the guest book buttons, sticky name search (only sticky element, top:0), roll call, 42 poster cards. Images have fixed 3:4 aspect-ratio and lazy-fetch their posters/<id>.txt via IntersectionObserver. No smooth scroll, no scroll-snap, no fixed overlays.
+- Old deep links: index.html#found-<id> (and #missing) redirect to found.html#found-<id>.
+- add_testimony.sh and add_photo.sh paths are unchanged (testimonies.json, posters.json live in echo-canyon/). The "Found Members page features" notes above about the sticky pill strip / smooth scroll are superseded by this section.

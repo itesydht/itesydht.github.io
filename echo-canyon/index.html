@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Atkinson+Hyperlegible:wght@400;700&family=Bungee&display=swap" rel="stylesheet">
+<script>(function(h){if(h.indexOf('#found-')===0||h==='#missing'){location.replace('found.html'+(h==='#missing'?'':h));}})(location.hash);</script>
 <style>
 :root{
   --bg:#0e0a14; --panel:#1b1324; --panel2:#251a31; --ink:#f6f1e7; --dim:#d9cfe6;
@@ -17,11 +18,10 @@
   --navh:62px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
 html,body{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Atkinson Hyperlegible',system-ui,-apple-system,sans-serif;font-size:20px;line-height:1.55}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse at 50% -10%,rgba(255,45,74,.22),transparent 60%),radial-gradient(ellipse at 100% 100%,rgba(125,255,106,.08),transparent 50%)}
+.hero,.fhead{background:radial-gradient(ellipse at 50% -10%,rgba(255,45,74,.22),transparent 60%),radial-gradient(ellipse at 100% 100%,rgba(125,255,106,.08),transparent 50%)}
 main,header,footer,nav{position:relative;z-index:1}
 h1,h2,h3{line-height:1.12;margin:0 0 .45em}
 h2{font-family:'Bungee',system-ui,sans-serif;font-weight:400;font-size:clamp(1.9rem,7.5vw,2.8rem);color:var(--blood);text-shadow:0 0 18px rgba(255,45,74,.45)}
@@ -52,7 +52,7 @@ section{padding:48px 0;border-top:2px solid #2d2238}
 .btn:active{transform:translateY(4px);box-shadow:0 2px 0 #000}
 /* found */
 #missing{background:linear-gradient(#150e1d,#0e0a14)}
-.searchbar{position:sticky;top:var(--navh);z-index:30;margin:0 -18px 14px;padding:12px 18px;background:rgba(14,10,20,.97);border-bottom:2px solid #2d2238}
+.searchbar{position:sticky;top:0;z-index:30;margin:0 -18px 14px;padding:12px 18px;background:rgba(14,10,20,.97);border-bottom:2px solid #2d2238}
 .searchbar label{display:block;font-family:'Bungee',sans-serif;color:var(--gold);font-size:1rem;margin-bottom:6px}
 .sbox{position:relative}
 #findme{width:100%;font:inherit;font-size:21px;min-height:60px;padding:12px 54px 12px 16px;border-radius:14px;border:3px solid var(--acid);background:#fff;color:#111}
@@ -71,11 +71,12 @@ details.roll{background:var(--panel);border:2px solid #3a2c48;border-radius:14px
 details.roll summary{min-height:56px;display:flex;align-items:center;font-weight:700;cursor:pointer;color:var(--gold)}
 .rollgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 0 14px}
 .rollgrid a{display:flex;align-items:center;min-height:52px;padding:6px 10px;border-radius:10px;background:var(--panel2);color:var(--ink);text-decoration:none;font-weight:700;font-size:1.02rem;line-height:1.2}
-.posters{display:grid;grid-template-columns:1fr;gap:30px;max-width:520px;margin:0 auto}
-@media(min-width:900px){.posters{grid-template-columns:1fr 1fr;max-width:none}}
-.poster{margin:0;background:var(--panel);border:3px solid #3a2c48;border-radius:18px;padding:12px;scroll-margin-top:calc(var(--navh) + 120px)}
+.posters{display:grid;grid-template-columns:minmax(0,1fr);gap:30px;max-width:520px;margin:0 auto}
+.poster{min-width:0}
+@media(min-width:900px){.posters{grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:none}}
+.poster{margin:0;background:var(--panel);border:3px solid #3a2c48;border-radius:18px;padding:12px;scroll-margin-top:175px}
 .poster .frame{position:relative;overflow:hidden;border-radius:10px;background:#000;cursor:zoom-in}
-.poster img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#222}
+.poster img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block;background:#222}
 .poster .stamp{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%) rotate(-18deg);border:5px solid var(--acid);color:var(--acid);background:rgba(0,0,0,.78);font-family:'Bungee',sans-serif;font-size:2.4rem;padding:2px 16px;border-radius:10px;pointer-events:none;white-space:nowrap;text-shadow:0 0 12px rgba(125,255,106,.7)}
 .poster figcaption{font-family:'Bungee',sans-serif;font-size:1.75rem;color:#fff;text-align:center;margin-top:12px;line-height:1.1}
 .poster .title{display:block;font-weight:700;font-size:1.25rem;color:var(--gold);text-align:center;margin-top:6px;line-height:1.25}
@@ -154,24 +155,32 @@ form.joinf textarea{min-height:140px;resize:vertical}
 footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 40px;font-size:1.02rem;border-top:3px solid var(--blood)}
 @media(min-width:760px){.values,.mantras{grid-template-columns:1fr 1fr}.mantra.big{grid-column:1/-1}.tiers{grid-template-columns:1fr 1fr 1fr}.rollgrid{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:380px){.topnav a{padding:0 9px}.topnav a.home{font-size:1.45rem}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.poster.flash{animation-duration:.01s}}
+@media(prefers-reduced-motion:reduce){.poster.flash{animation-duration:.01s}}
+.bigfind{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;max-width:560px;margin:0 auto;min-height:120px;padding:18px;border-radius:22px;border:4px solid #000;background:var(--acid);color:#0b0b0b;text-decoration:none;font-family:'Bungee',sans-serif;font-size:clamp(1.6rem,7.5vw,2.4rem);line-height:1.1;text-align:center;box-shadow:0 8px 0 #000,0 0 34px rgba(125,255,106,.5)}
+.bigfind small{font-family:'Atkinson Hyperlegible',sans-serif;font-weight:700;font-size:1.1rem;margin-top:6px}
+.bigfind:active{transform:translateY(5px);box-shadow:0 3px 0 #000}
+.oneliners{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.oneliners li{background:var(--panel);border-left:6px solid var(--gold);border-radius:12px;padding:12px 14px;font-weight:700}
+.fhead{padding:16px 0 8px;text-align:center}
+.fhead h1{font-family:'Creepster',cursive;font-weight:400;color:var(--blood);font-size:clamp(2.6rem,12vw,4rem);margin:.1em 0 .1em;text-shadow:0 0 20px rgba(255,45,74,.55),3px 3px 0 #000}
+.navrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:560px;margin:0 auto}
+.navrow .btn{min-height:56px;font-size:1rem;padding:10px 8px;max-width:none}
+footer.tiny{padding:18px;font-size:1rem}
+footer.tiny p{margin:.3em 0}
+
 </style>
 </head>
 <body>
-<nav class="topnav" aria-label="Sections"><a href="#top" class="home">Echo Canyon</a><a href="#missing" class="hot">Found</a><a href="#faq">FAQ</a><a href="#join">Join</a></nav>
-
 <header class="hero" id="top">
   <div class="notcult" role="note"><span>DEFINITELY NOT A CULT</span></div>
   <h1>Echo Canyon Co-op</h1>
   <p class="tag">You have been FOUND. Survive the co-op.</p>
-  <p class="sub">Welcome, contestants, to the only farm community with a live studio audience. Tonight's prize: belonging. Tonight's penalty: also belonging. Your host is Guru Eddy, and he is so happy you came. You can leave any time.* <br><span style="font-size:17px">*Terms and conditions apply.</span></p>
-  <div class="ctas">
-    <a class="btn" href="#missing">&#128269; Find yourself</a>
-    <a class="btn red" href="#join">Sign the guest book &#9760;</a>
-  </div>
+  <p class="sub">Welcome, contestants. Your host tonight is <b>Guru Eddy</b>, and he is so happy you came. You can leave any time.*<br><span style="font-size:17px">*Terms and conditions apply.</span></p>
+  <a class="bigfind" href="found.html">&#128269; FIND YOURSELF<span>Found Members</span><small id="foundN">See if your MISSING poster was found</small></a>
 </header>
 
-<section id="wall" aria-labelledby="wallh">
+<main>
+<section id="wall" style="border-top:0" aria-labelledby="wallh">
   <div class="wrap">
     <div class="kicker">Live From the Canyon</div>
     <h2 id="wallh">Testimonies from the Found</h2>
@@ -181,178 +190,16 @@ footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 4
   </div>
 </section>
 
-<main>
-<section id="missing">
+<section id="rules" style="padding:36px 0">
   <div class="wrap">
-    <div class="kicker">Round 1: The Notice Board</div>
-    <h2>Found Members</h2>
-    <p class="host">Remember all those MISSING posters? Every single one of them wandered into the canyon. Of their own free will. Totally. Type your name below to see your new job. Wrong answers will not be punished. Probably.</p>
-    <div class="searchbar" id="searchbar" hidden>
-      <label for="findme">Are you on the board?</label>
-      <div class="sbox">
-        <input id="findme" type="search" placeholder="Type your name to find yourself" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="search"
-          role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugg">
-        <button type="button" id="clearq" aria-label="Clear search">&times;</button>
-        <ul id="sugg" role="listbox" aria-label="Matching found members" hidden></ul>
-      </div>
-      <p class="count" id="rcCount" aria-live="polite"></p>
-    </div>
-    <details class="roll" id="roll" hidden><summary>&#9760; Show the whole roll call</summary><div class="rollgrid" id="rollgrid"></div></details>
-    <div class="posters" id="posters">
-      <div class="empty" id="postersEmpty">Nobody has been found yet. Nobody is missing either. Everyone is fine. Please stop asking.</div>
-    </div>
-    <a class="btn totop" href="#missing">&#8593; Back to the search</a>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap">
-    <div class="kicker">Welcome, friend</div>
-    <h2>It's not a cult. It's a co-op.</h2>
-    <p>Tucked away on 40 peaceful acres with no cell service (on purpose), Echo Canyon is a cooperative farm where everyone shares everything: the work, the harvest, the bunkhouse, and especially your savings account.</p>
-    <p>Our spiritual guide, <strong>Guru Eddy</strong>, is a visionary, a gardener, and, according to Guru Eddy, a portal. He found enlightenment at the bottom of a pair of amber aviators and has been generously sharing it ever since. Usually with an acoustic guitar. Usually for a long time.</p>
-  </div>
-</section>
-
-<section id="sayings">
-  <div class="wrap">
-    <div class="kicker">Words to grow by</div>
-    <h2>Co-op Sayings</h2>
-    <div class="mantras">
-      <div class="mantra big">"No corporate overlords, no capitalism. All are welcome, especially if you're hot."</div>
-      <div class="mantra">"We don't have a leader. We have Guru Eddy, which is different, and also please stop asking."</div>
-      <div class="mantra">"Your possessions were holding you back. We'll hold them for you."</div>
-      <div class="mantra">"Nobody leaves Echo Canyon. Mostly because the van has one key."</div>
-      <div class="mantra">"Free love. Free kale. Membership is $49.99 a month."</div>
-      <div class="mantra">"There's no 'I' in co-op. There's also no exit."</div>
-      <div class="mantra">"The headband is not mandatory. The headband is strongly encouraged. The headband is mandatory."</div>
-      <div class="mantra">"Ask not what the co-op can do for you. Ask for your car keys back. You will not get them."</div>
-    </div>
-  </div>
-</section>
-
-<section id="tiers">
-  <div class="wrap">
-    <div class="kicker">Grow with us</div>
-    <h2>Membership Tiers</h2>
-    <div class="tiers">
-      <div class="tier">
-        <h3>Probationer</h3>
-        <span class="price">Days 1 to 10</span>
-        <ul>
-          <li>Bunk with a view (of other bunks)</li>
-          <li>Hand-stitched co-op tunic, one size fits nobody</li>
-          <li>Unlimited compost-turning</li>
-          <li>Phone placed in our "Digital Detox Shoebox"</li>
-        </ul>
-        <p class="fine">Probationers are evaluated daily by the community. Smiling counts. So does not asking where the last group of probationers went.</p>
-      </div>
-      <div class="tier">
-        <h3>Neophyte</h3>
-        <span class="price">Voted in at Day 10</span>
-        <ul>
-          <li>Upgraded bunk (bottom)</li>
-          <li>Second tunic, for formal harvests</li>
-          <li>Front-row seating at Guru Eddy's nightly sing</li>
-          <li>Your mail, read aloud to you "for your growth"</li>
-        </ul>
-        <p class="fine">Votes are anonymous, except Guru Eddy's, which counts as everyone's. Results are final. Appeals may be filed with Judith.</p>
-      </div>
-      <div class="tier project">
-        <h3>The Project</h3>
-        <span class="price">By invitation only</span>
-        <ul>
-          <li>Relocation to our beautiful sister farm</li>
-          <li>Exclusive wellness program</li>
-          <li>Very special vitamins</li>
-          <li>Rave reviews from absolutely no one who has returned</li>
-        </ul>
-        <p class="fine">The sister farm is real. It is lovely. It is not under the barn. Please do not go near the barn. Do not ask about the hatch in the barn. There is no barn. Results not typical. Side effects may include vanishing. Not evaluated by the FDA, or anyone.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="day">
-  <div class="wrap">
-    <div class="kicker">Rise and shine, it's mandatory</div>
-    <h2>A Day at the Co-op</h2>
-    <ul class="day">
-      <li><b>4:30 am</b> Gentle wake-up gong. Then the less gentle gong.</li>
-      <li><b>5:00 am</b> Sunrise gratitude circle. Say one thing you're grateful for. It should be Guru Eddy.</li>
-      <li><b>6:00 am</b> Breakfast: oats we grew, milk we grew, and a feeling we grew.</li>
-      <li><b>7:00 am</b> Fieldwork. Today's lesson: the zucchini doesn't complain, so why do you?</li>
-      <li><b>12:00 pm</b> Lunch. Absolutely no processed food. A Dorito was found in 2019 and we still talk about it.</li>
-      <li><b>1:00 pm</b> Mail time. Judith reads your letters first, for your growth.</li>
-      <li><b>3:00 pm</b> Free time (supervised).</li>
-      <li><b>6:00 pm</b> Communal dinner. Seating is assigned by aura.</li>
-      <li><b>8:00 pm</b> Nightly gathering. Attendance is required. Guru Eddy sings. All 14 verses.</li>
-      <li><b>11:00 pm</b> Lights out. Someone will check.</li>
+    <h2 style="font-size:1.7rem">House Rules</h2>
+    <ul class="oneliners">
+      <li>Everyone is welcome. Especially if you're hot.</li>
+      <li>Snacks are shared. Craig gets first pick.</li>
+      <li>You may leave at any time. Nobody ever has.</li>
     </ul>
   </div>
 </section>
-
-<section id="values">
-  <div class="wrap">
-    <div class="kicker">What we stand for</div>
-    <h2>Our Values</h2>
-    <div class="values">
-      <div class="value"><strong>Community</strong>We share everything. You'll be surprised how much of your stuff "everything" includes.</div>
-      <div class="value"><strong>Transparency</strong>We know where you are at all times. That's transparency, right?</div>
-      <div class="value"><strong>Sustainability</strong>We waste nothing. Not food, not water, not new members.</div>
-      <div class="value"><strong>Wellness</strong>Clean living, clean eating, and cleaned-out bank accounts.</div>
-      <div class="value"><strong>Equality</strong>Everyone is equal. Guru Eddy is just a little more equal, and he has the nicer cabin.</div>
-      <div class="value"><strong>Openness</strong>Our gates are always open. For coming in.</div>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials">
-  <div class="wrap">
-    <div class="kicker">Real reviews from real members</div>
-    <h2>Testimonials</h2>
-    <div class="quotes">
-      <blockquote>"I came for a weekend retreat. That was eight months ago. 10/10, the kale is incredible."<cite>Sunflower, formerly Kevin from Accounting</cite></blockquote>
-      <blockquote>"They took my cigarettes. I hid more. They found those and made me eat them. Honestly? I've never felt more seen."<cite>Probationer Dale, Day 9 (fingers crossed)</cite></blockquote>
-      <blockquote>"Guru Eddy looked at me through those amber glasses and I just knew. Knew what, I couldn't tell you. But I knew it."<cite>Meadow, Neophyte</cite></blockquote>
-      <blockquote>"My cousin got picked for the Project! She's at the sister farm now. She hasn't called, but I assume that's the no-phones thing."<cite>River, Neophyte</cite></blockquote>
-      <blockquote>"Everything is going great and I am free to leave."<cite>Name withheld, read from a card</cite></blockquote>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap">
-    <div class="kicker">You have questions. We have deflections.</div>
-    <h2>FAQ</h2>
-    <details class="q"><summary>Is this a cult?</summary><p>It is DEFINITELY NOT A CULT. It says so in giant letters at the top. Would a cult do that?</p></details>
-    <details class="q"><summary>But is it a cult though?</summary><p>It's a co-op. Next question.</p></details>
-    <details class="q"><summary>Can I leave whenever I want?</summary><p>Absolutely. Whenever you want to is up to you. What you want is up to Guru Eddy.</p></details>
-    <details class="q"><summary>What happens at the sister farm?</summary><p>Wonderful things. Growth. Wellness. Vitamins. Don't worry about it.</p></details>
-    <details class="q"><summary>Why is there a barn with a reinforced steel door?</summary><p>Barns are like that now. Livestock got stronger.</p></details>
-    <details class="q"><summary>Who is Judith?</summary><p>Judith is our Operations Director. She handles scheduling, logistics, your mail, your phone, your car, and your feelings about any of the above.</p></details>
-    <details class="q"><summary>Is Guru Eddy really a portal?</summary><p>He has said so many times, and he's wearing a headband, so we believe him.</p></details>
-    <details class="q"><summary>Do I have to be hot to join?</summary><p>No! All are welcome. It just, you know, helps with the vote.</p></details>
-  </div>
-</section>
-
-<section id="rules">
-  <div class="wrap">
-    <div class="kicker">For your growth</div>
-    <h2>House Rules</h2>
-    <ol class="rules">
-      <li>No processed food. If it has a barcode, it has a demon.</li>
-      <li>Cigarettes will be confiscated. Get caught twice and you eat them. Bon appetit.</li>
-      <li>All outgoing and incoming mail is read by Judith, for your growth.</li>
-      <li>Phones, wallets, and car keys go in the Gratitude Basket on arrival.</li>
-      <li>Nightly gathering is mandatory. Clapping on the one and three only.</li>
-      <li>Do not touch Guru Eddy's aviators. They are load-bearing.</li>
-      <li>Stay away from the barn. There is nothing in the barn. Stay away from it.</li>
-      <li>Never say the word "cult." The word is "co-op." It was a vote. You weren't here yet.</li>
-    </ol>
-  </div>
-</section>
-
 
 <section id="join">
   <div class="wrap">
@@ -377,19 +224,12 @@ footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 4
 </section>
 </main>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-label="Poster full size"><img alt=""><p></p><p class="x">Tap anywhere to close</p></div>
-
-<footer>
-  <p>&#9760; &#9774; &#127875;</p>
-  <p>Echo Canyon Co-op is a Halloween party bit. Guru Eddy is a guy in a headband. No real farm, barn, sister farm, or vitamins exist. It is DEFINITELY NOT A CULT.</p>
-  <p>&copy; Nobody. We don't believe in ownership.</p>
+<footer class="tiny">
+  <p>&#9760; A Halloween party bit. Guru Eddy is a guy in a headband. DEFINITELY NOT A CULT.</p>
 </footer>
 
 <script>
 (function(){
-  var g=document.getElementById('posters'), empty=document.getElementById('postersEmpty'), lb=document.getElementById('lightbox');
-  var sb=document.getElementById('searchbar'), q=document.getElementById('findme'), ul=document.getElementById('sugg'), clr=document.getElementById('clearq');
-  var rcCount=document.getElementById('rcCount'), roll=document.getElementById('roll'), rollgrid=document.getElementById('rollgrid'), dl=document.getElementById('memberlist');
   (function(){
     var tl=document.getElementById('tlist'), more=document.getElementById('tmore'), PAGE=12, all=[], shownN=0;
     function when(s){var d=new Date(s); if(isNaN(d)) return ''; try{return d.toLocaleString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' ET';}catch(e){return d.toLocaleString();}}
@@ -411,93 +251,11 @@ footer{background:#07050a;color:var(--dim);text-align:center;padding:30px 18px 4
       tl.innerHTML=''; render();
     }).catch(function(){});
   })();
-  var STAMP={guru:'FOUNDER',hero:'HERO',wanted:'CAUGHT'};
-  lb.addEventListener('click',function(){lb.classList.remove('on');});
   if(/[?&]joined=1/.test(location.search)){var th=document.getElementById('thanks'); th.classList.add('on'); setTimeout(function(){th.scrollIntoView({block:'center'}); th.focus({preventScroll:true});},200);}
-  function clean(n){return (n||'').trim().split(/\s+/).filter(function(w){return !/^(jr|sr|ii|iii|iv)\.?$/i.test(w);});}
-  function lastName(n){n=clean(n);return (n[n.length-1]||'').toLowerCase()+' '+n.join(' ').toLowerCase();}
-  function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();}
-  function slug(p){return 'found-'+String(p.id||p.caption||'x').replace(/[^a-z0-9]+/gi,'-');}
-  var people=[], active=-1, shown=[];
-  function go(person){
-    close(); q.value=person.name; clr.style.display='block';
-    var f=person.el; f.scrollIntoView({behavior:'smooth',block:'start'});
-    f.classList.remove('flash'); void f.offsetWidth; f.classList.add('flash');
-    history.replaceState(null,'','#'+f.id); q.blur();
-  }
-  function close(){ul.hidden=true;q.setAttribute('aria-expanded','false');q.removeAttribute('aria-activedescendant');active=-1;}
-  function hl(name,qq){var i=norm(name).indexOf(qq); if(i<0||!qq) return esc(name); return esc(name.slice(0,i))+'<mark>'+esc(name.slice(i,i+qq.length))+'</mark>'+esc(name.slice(i+qq.length));}
-  function esc(t){var d=document.createElement('div');d.textContent=t||'';return d.innerHTML;}
-  function search(){
-    var qq=norm(q.value); clr.style.display=q.value?'block':'none';
-    if(!qq){close();return;}
-    var res=[];
-    people.forEach(function(p){
-      var full=p.key, words=full.split(' '), s=-1;
-      if(full.indexOf(qq)===0) s=0;
-      else if(words.some(function(w){return w.indexOf(qq)===0;})) s=1;
-      else if(full.indexOf(qq)>=0) s=2;
-      else if(qq.indexOf(' ')>0 && qq.split(' ').every(function(t){return words.some(function(w){return w.indexOf(t)===0;});})) s=3;
-      if(s>=0) res.push({p:p,s:s});
-    });
-    res.sort(function(a,b){return a.s-b.s||(a.p.sort<b.p.sort?-1:1);});
-    shown=res.slice(0,8).map(function(r){return r.p;});
-    ul.innerHTML='';
-    if(!shown.length){
-      var li=document.createElement('li'); li.className='none'; li.setAttribute('role','option'); li.setAttribute('aria-disabled','true');
-      li.innerHTML='Not found yet. The co-op is still looking for you.<small>Check the spelling, or sign the guest book below so Guru Eddy can make you a poster.</small>';
-      ul.appendChild(li);
-    } else shown.forEach(function(p,i){
-      var li=document.createElement('li'); li.id='opt-'+i; li.setAttribute('role','option'); li.setAttribute('aria-selected','false');
-      li.innerHTML='<span>'+hl(p.name,qq)+'</span><small>'+esc(p.title)+'</small>';
-      li.addEventListener('mousedown',function(e){e.preventDefault();});
-      li.addEventListener('click',function(){go(p);});
-      ul.appendChild(li);
-    });
-    ul.hidden=false; q.setAttribute('aria-expanded','true'); setActive(-1);
-  }
-  function setActive(i){
-    active=i; [].forEach.call(ul.children,function(li,j){li.setAttribute('aria-selected',j===i?'true':'false');});
-    if(i>=0&&ul.children[i]){q.setAttribute('aria-activedescendant','opt-'+i); ul.children[i].scrollIntoView({block:'nearest'});} else q.removeAttribute('aria-activedescendant');
-  }
-  q.addEventListener('input',search);
-  q.addEventListener('focus',function(){if(q.value) search();});
-  q.addEventListener('blur',function(){setTimeout(close,150);});
-  q.addEventListener('keydown',function(e){
-    if(e.key==='ArrowDown'){e.preventDefault(); if(ul.hidden) search(); if(shown.length) setActive((active+1)%shown.length);}
-    else if(e.key==='ArrowUp'){e.preventDefault(); if(shown.length) setActive(active<=0?shown.length-1:active-1);}
-    else if(e.key==='Enter'){e.preventDefault(); if(shown.length&&!ul.hidden) go(shown[active>=0?active:0]);}
-    else if(e.key==='Escape'){close();}
-  });
-  clr.addEventListener('click',function(){q.value='';clr.style.display='none';close();q.focus();});
+  var dl=document.getElementById('memberlist');
   fetch('posters.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():[];}).then(function(list){
-    if(!list||!list.length) return;
-    empty.style.display='none';
-    list=list.slice().sort(function(a,b){return lastName(a.caption)<lastName(b.caption)?-1:1;});
-    sb.hidden=false; roll.hidden=false;
-    rcCount.textContent=list.length+' souls found so far. Is yours one of them?';
-    list.forEach(function(p){
-      var f=document.createElement('figure'); f.className='poster'+(p.special?' '+p.special:''); f.id=slug(p);
-      var img=document.createElement('img'); img.alt='FOUND: '+(p.caption||'a member'); img.loading='lazy';
-      var fr=document.createElement('div'); fr.className='frame';
-      var st=document.createElement('span'); st.className='stamp'; st.textContent=STAMP[p.special]||'FOUND';
-      fr.appendChild(img); fr.appendChild(st);
-      var c=document.createElement('figcaption'); c.textContent=p.caption||'';
-      var ti=document.createElement('span'); ti.className='title'; ti.textContent=p.title||'Title pending review by Guru Eddy';
-      f.appendChild(fr); f.appendChild(c); f.appendChild(ti);
-      if(p.duty){var du=document.createElement('span'); du.className='duty'; du.textContent=p.duty; f.appendChild(du);}
-      if(p.turnaround){var tu=document.createElement('span'); tu.className='turn'; var tb=document.createElement('b'); tb.textContent='The Turnaround'; tu.appendChild(tb); tu.appendChild(document.createTextNode(p.turnaround)); f.appendChild(tu);}
-      g.appendChild(f);
-      var person={name:p.caption||'',title:p.title||'',key:norm(clean(p.caption).join(' ')),sort:lastName(p.caption),el:f};
-      people.push(person);
-      var a=document.createElement('a'); a.href='#'+f.id; a.textContent=p.caption||'Unknown';
-      a.addEventListener('click',function(e){e.preventDefault(); go(person);});
-      rollgrid.appendChild(a);
-      var o=document.createElement('option'); o.value=p.caption||''; dl.appendChild(o);
-      fetch(p.file,{cache:'force-cache'}).then(function(r){return r.text();}).then(function(d){img.src=d.trim();});
-      fr.addEventListener('click',function(){ if(!img.src) return; lb.querySelector('img').src=img.src; lb.querySelector('img').alt=img.alt; lb.querySelector('p').textContent='FOUND: '+(p.caption||''); lb.classList.add('on');});
-    });
-    if(location.hash&&location.hash.indexOf('#found-')===0){var t=document.getElementById(location.hash.slice(1)); if(t) setTimeout(function(){t.scrollIntoView(); t.classList.add('flash');},400);}
+    (list||[]).map(function(p){return p.caption||'';}).filter(Boolean).sort().forEach(function(n){var o=document.createElement('option'); o.value=n; dl.appendChild(o);});
+    var c=document.getElementById('foundN'); if(c&&list&&list.length) c.textContent=list.length+' souls found. Is one of them you?';
   }).catch(function(){});
 })();
 </script>
